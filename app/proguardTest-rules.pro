@@ -1,12 +1,3 @@
-# Some methods are only called from tests, so make sure the shrinker keeps them.
--keep class android.support.v4.widget.DrawerLayout { *; }
--keep class android.support.test.espresso.IdlingResource { *; }
-
-# For Guava:
--dontwarn javax.annotation.**
--dontwarn javax.inject.**
--dontwarn sun.misc.Unsafe
-
 # Proguard rules that are applied to your test apk/code.
 -ignorewarnings
 

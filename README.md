@@ -62,13 +62,12 @@ Bientôt
 
 Le projet utilise le système de build Gradle. Pour construire le projet, utiliser le "gradlew build" ou utiliser "Import Project" dans Android Studio.
 
-
-## Docs
+Pour l'autre partie du projet, serveur et service, ce référer à [Erozbliz/Mean_stack_test](https://github.com/Erozbliz/MEAN_stack_test)
 
 
 ##Licence
 
-Copyright 2016
+Copyright 2016 University of Sherbrooke
 
 Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements. See the NOTICE file distributed with this work for additional information regarding copyright ownership. The ASF licenses this file to you under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 

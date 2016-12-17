@@ -31,7 +31,7 @@ ext {
     buildToolsVersion = '24.0.3'
 
     // App dependencies
-    supportLibraryVersion = '25.0.1' // variable that can be referenced to keep support libs consistent
+    supportLibraryVersion = '25.1.0' // variable that can be referenced to keep support libs consistent
     guavaVersion = '20.0'
     junitVersion = '4.12'
     mockitoVersion = '1.10.19'
@@ -39,6 +39,7 @@ ext {
     runnerVersion = '0.5'
     rulesVersion = '0.5'
     espressoVersion = '2.2.2'
+    googlePlayServicesVersion = '10.0.1'
     retrofitVersion = '2.1.0'
     okhttpVersion = '3.5.0'
     okhttpInterceptorVersion = '3.5.0'

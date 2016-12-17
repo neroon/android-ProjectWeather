@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2016 University of Sherbrooke
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 apply plugin: 'com.android.application'
 
 // Create a variable called keystorePropertiesFile, and initialize it to your
@@ -10,12 +26,12 @@ def keystoreProperties = new Properties()
 // Load your keystore.properties file into the keystoreProperties object.
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
-
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
+        buildConfigField 'String', 'API_KEY', '"cee4dee77dc1c1746569fd9931f752ca"'
         applicationId "ca.udes.android_projectweather"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
@@ -30,7 +46,6 @@ android {
     }
 
     signingConfigs {
-
         // TODO : I should use another file to store all keys in the debugging version
         debug {
             try {
@@ -118,6 +133,12 @@ dependencies {
     compile "com.android.support.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
 
     compile "com.google.guava:guava:$rootProject.guavaVersion"
+
+    // Google Play services
+    compile "com.google.android.gms:play-services-location:$rootProject.googlePlayServicesVersion"
+    compile "com.google.android.gms:play-services-maps:$rootProject.googlePlayServicesVersion"
+    compile "com.google.android.gms:play-services-places:$rootProject.googlePlayServicesVersion"
+    compile "com.google.android.gms:play-services-awareness:$rootProject.googlePlayServicesVersion"
 
     // Retrofit2
     compile "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"

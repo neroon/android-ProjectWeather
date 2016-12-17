@@ -46,16 +46,18 @@ Versions Android visées :
 * Android 7.0 Nougat (API level 24-25)
 
 
+## Technologies utilisées
+*Retrofit   v2.1.0
+*OkHttp     v3.5.0
+*RxJava     v1.2.3
+*Picasso    v2.5.2
+*LeakCanary v1.5
+
 ## Prérequis
 
 * Android SDK 25
-* Android Build Tools v25.0.1
+* Android Build Tools v24.0.3
 * Android Support Repository
-
-
-## Captures d'écran
-
-Bientôt
 
 
 ## Installation
@@ -65,7 +67,7 @@ Le projet utilise le système de build Gradle. Pour construire le projet, utilis
 Pour l'autre partie du projet, serveur et service, ce référer à [Erozbliz/Mean_stack_test](https://github.com/Erozbliz/MEAN_stack_test)
 
 
-##Licence
+## Licence
 
 Copyright 2016 University of Sherbrooke
 

@@ -14,4 +14,30 @@
  * limitations under the License.
  */
 
-include ':app'
+package ca.udes.android_projectweather.network;
+
+import android.support.annotation.Nullable;
+
+import ca.udes.android_projectweather.models.ForecastResponse;
+
+/**
+ * Callback invoked when a forecast is obtained
+ *
+ * @version 1.0
+ */
+public class ForecastCallback {
+
+    /**
+     * Forecast.
+     *
+     * @param      forecast
+     */
+    public void onForecastSuccess(ForecastResponse forecast) {}
+
+    /**
+     * Errors.
+     *
+     * @param      throwable
+     */
+    public void onForecastError(@Nullable Throwable throwable) {}
+}

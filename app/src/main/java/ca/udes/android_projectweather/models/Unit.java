@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package ca.udes.android_projectweather.models;
 
 import com.google.gson.annotations.SerializedName;
@@ -23,20 +22,13 @@ import com.google.gson.annotations.SerializedName;
  *
  * @version 1.0
  */
+@SuppressWarnings("unused")
 public enum Unit {
 
-    @SerializedName(ModelConstants.UNIT_US)
-    US(ModelConstants.UNIT_US),
-    @SerializedName(ModelConstants.UNIT_SI)
-    SI(ModelConstants.UNIT_SI),
-    @SerializedName(ModelConstants.UNIT_CA)
-    CA(ModelConstants.UNIT_CA),
-    @SerializedName(ModelConstants.UNIT_UK)
-    UK(ModelConstants.UNIT_UK),
-    @SerializedName(ModelConstants.UNIT_UK2)
-    UK2(ModelConstants.UNIT_UK2),
-    @SerializedName(ModelConstants.UNIT_AUTO)
-    AUTO(ModelConstants.UNIT_AUTO);
+    @SerializedName(ModelConstants.UNIT_METRIC)
+    METRIC(ModelConstants.UNIT_METRIC),
+    @SerializedName(ModelConstants.UNIT_IMPERIAL)
+    IMPERIAL(ModelConstants.UNIT_IMPERIAL);
 
     private final String mText;
 

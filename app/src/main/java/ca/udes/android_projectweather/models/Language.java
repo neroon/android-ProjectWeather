@@ -19,26 +19,25 @@ package ca.udes.android_projectweather.models;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * The several types of languages that the Dark Sky API uses.
+ * The several types of languages that the OpenWeatherMapAPI uses.
  *
  * @version 1.0
  */
+@SuppressWarnings("unused")
 public enum Language {
 
-    @SerializedName(ModelConstants.LANGUAGE_ARABIC)
-    ARABIC(ModelConstants.LANGUAGE_ARABIC),
-    @SerializedName(ModelConstants.LANGUAGE_AZERBAIJANI)
-    AZERBAIJANI(ModelConstants.LANGUAGE_AZERBAIJANI),
-    @SerializedName(ModelConstants.LANGUAGE_BELARUSIAN)
-    BELARUSIAN(ModelConstants.LANGUAGE_BELARUSIAN),
-    @SerializedName(ModelConstants.LANGUAGE_BOSNIAN)
-    BOSNIAN(ModelConstants.LANGUAGE_BOSNIAN),
-    @SerializedName(ModelConstants.LANGUAGE_CZECH)
-    CZECH(ModelConstants.LANGUAGE_CZECH),
+    @SerializedName(ModelConstants.LANGUAGE_ROMANIAN)
+    ROMANIAN(ModelConstants.LANGUAGE_ROMANIAN),
+    @SerializedName(ModelConstants.LANGUAGE_POLISH)
+    POLISH(ModelConstants.LANGUAGE_POLISH),
+    @SerializedName(ModelConstants.LANGUAGE_FINNISH)
+    FINNISH(ModelConstants.LANGUAGE_FINNISH),
     @SerializedName(ModelConstants.LANGUAGE_GERMAN)
     GERMAN(ModelConstants.LANGUAGE_GERMAN),
-    @SerializedName(ModelConstants.LANGUAGE_GREEK)
-    GREEK(ModelConstants.LANGUAGE_GREEK),
+    @SerializedName(ModelConstants.LANGUAGE_BULGARIAN)
+    BULGARIAN(ModelConstants.LANGUAGE_BULGARIAN),
+    @SerializedName(ModelConstants.LANGUAGE_CATALAN)
+    CATALAN(ModelConstants.LANGUAGE_CATALAN),
     @SerializedName(ModelConstants.LANGUAGE_ENGLISH)
     ENGLISH(ModelConstants.LANGUAGE_ENGLISH),
     @SerializedName(ModelConstants.LANGUAGE_SPANISH)
@@ -47,40 +46,20 @@ public enum Language {
     FRENCH(ModelConstants.LANGUAGE_FRENCH),
     @SerializedName(ModelConstants.LANGUAGE_CROATIAN)
     CROATIAN(ModelConstants.LANGUAGE_CROATIAN),
-    @SerializedName(ModelConstants.LANGUAGE_HUNGARIAN)
-    HUNGARIAN(ModelConstants.LANGUAGE_HUNGARIAN),
-    @SerializedName(ModelConstants.LANGUAGE_INDONESIAN)
-    INDONESIAN(ModelConstants.LANGUAGE_INDONESIAN),
     @SerializedName(ModelConstants.LANGUAGE_ITALIAN)
     ITALIAN(ModelConstants.LANGUAGE_ITALIAN),
-    @SerializedName(ModelConstants.LANGUAGE_ICELANDIC)
-    ICELANDIC(ModelConstants.LANGUAGE_ICELANDIC),
-    @SerializedName(ModelConstants.LANGUAGE_CORNISH)
-    CORNISH(ModelConstants.LANGUAGE_CORNISH),
-    @SerializedName(ModelConstants.LANGUAGE_NORWEGIAN_BOKMAL)
-    NORWEGIAN_BOKMAL(ModelConstants.LANGUAGE_NORWEGIAN_BOKMAL),
     @SerializedName(ModelConstants.LANGUAGE_DUTCH)
     DUTCH(ModelConstants.LANGUAGE_DUTCH),
-    @SerializedName(ModelConstants.LANGUAGE_POLISH)
-    POLISH(ModelConstants.LANGUAGE_POLISH),
     @SerializedName(ModelConstants.LANGUAGE_PORTUGUESE)
     PORTUGUESE(ModelConstants.LANGUAGE_PORTUGUESE),
     @SerializedName(ModelConstants.LANGUAGE_RUSSIAN)
     RUSSIAN(ModelConstants.LANGUAGE_RUSSIAN),
-    @SerializedName(ModelConstants.LANGUAGE_SLOVAK)
-    SLOVAK(ModelConstants.LANGUAGE_SLOVAK),
-    @SerializedName(ModelConstants.LANGUAGE_SERBIAN)
-    SERBIAN(ModelConstants.LANGUAGE_SERBIAN),
     @SerializedName(ModelConstants.LANGUAGE_SWEDISH)
     SWEDISH(ModelConstants.LANGUAGE_SWEDISH),
-    @SerializedName(ModelConstants.LANGUAGE_TETUM)
-    TETUM(ModelConstants.LANGUAGE_TETUM),
     @SerializedName(ModelConstants.LANGUAGE_TURKISH)
     TURKISH(ModelConstants.LANGUAGE_TURKISH),
     @SerializedName(ModelConstants.LANGUAGE_UKRAINIAN)
     UKRAINIAN(ModelConstants.LANGUAGE_UKRAINIAN),
-    @SerializedName(ModelConstants.LANGUAGE_PIG_LATIN)
-    PIG_LATIN(ModelConstants.LANGUAGE_PIG_LATIN),
     @SerializedName(ModelConstants.LANGUAGE_SIMPLIFIED_CHINESE)
     SIMPLIFIED_CHINESE(ModelConstants.LANGUAGE_SIMPLIFIED_CHINESE),
     @SerializedName(ModelConstants.LANGUAGE_TRADITIONAL_CHINESE)

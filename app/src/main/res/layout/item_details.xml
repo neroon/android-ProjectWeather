@@ -14,7 +14,17 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_material_half">
 
-<resources>
+    <LinearLayout
+        android:id="@+id/ll_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_material"/>
 
-</resources>
+</android.support.v7.widget.CardView>

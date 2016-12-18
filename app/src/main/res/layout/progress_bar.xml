@@ -14,7 +14,17 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-<resources>
+    <ProgressBar
+        style="@style/Base.Widget.AppCompat.ProgressBar"
+        android:id="@+id/progressBar"
+        android:indeterminate="true"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"/>
 
-</resources>
+</FrameLayout>

@@ -1,4 +1,4 @@
-#TP2 Hockey
+#Project Weather
 
 ## Présensation
 
@@ -47,11 +47,12 @@ Versions Android visées :
 
 
 ## Technologies utilisées
-*Retrofit   v2.1.0
-*OkHttp     v3.5.0
-*RxJava     v1.2.3
-*Picasso    v2.5.2
-*LeakCanary v1.5
+* Retrofit   v2.1.0
+* OkHttp     v3.5.0
+* RxJava     v1.2.3
+* Picasso    v2.5.2
+* LeakCanary v1.5
+* OpenWeatherMap
 
 ## Prérequis
 

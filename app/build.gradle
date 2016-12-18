@@ -31,7 +31,6 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        buildConfigField 'String', 'API_KEY', '"cee4dee77dc1c1746569fd9931f752ca"'
         applicationId "ca.udes.android_projectweather"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
@@ -48,25 +47,25 @@ android {
     signingConfigs {
         // TODO : I should use another file to store all keys in the debugging version
         debug {
-            try {
+            /*try {
                 keyAlias keystoreProperties['keyAlias']
                 keyPassword keystoreProperties['keyPassword']
                 storeFile file(keystoreProperties['storeFile'])
                 storePassword keystoreProperties['storePassword']
             } catch (ex) {
                 throw new InvalidUserCodeException("You should define keyAlias, keyPassword, storePassword and storeFile in keystore.properties.")
-            }
+            }*/
         }
 
         release {
-            try {
+            /*try {
                 keyAlias keystoreProperties['keyAlias']
                 keyPassword keystoreProperties['keyPassword']
                 storeFile file(keystoreProperties['storeFile'])
                 storePassword keystoreProperties['storePassword']
             } catch (ex) {
                 throw new InvalidUserCodeException("You should define keyAlias, keyPassword, storePassword and storeFile in keystore.properties.")
-            }
+            }*/
         }
     }
 

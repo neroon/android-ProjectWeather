@@ -16,16 +16,30 @@
   -->
 
 <resources>
-
     <!-- Base application theme. -->
-    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/md_indigo_500</item>
-        <!-- Light Indigo -->
-        <item name="colorPrimaryDark">@color/md_indigo_600</item>
-        <!-- Dark Indigo -->
-        <item name="colorAccent">@color/md_light_blue_A400</item>
-        <!-- Blue -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/md_blue_grey_500</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_700</item>
+        <item name="colorAccent">@color/md_orange_A400</item>
+        <item name="android:windowBackground">@color/md_grey_600</item>
     </style>
-    <style name="AppTheme" parent="AppTheme.Base"></style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <!--Splash Screen Theme-->
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+
+    <!--Header text size-->
+    <style name="place_header_text">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="style_weathericon">
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    </style>
+
 </resources>

@@ -18,11 +18,18 @@ package ca.udes.android_projectweather.managers;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import java.util.Map;
+import java.util.Set;
+
+import ca.udes.android_projectweather.activities.LoginActivity;
 import ca.udes.android_projectweather.utils.Constants;
 import ca.udes.android_projectweather.utils.WeatherUtil;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * SharedPreferences to stock values.
@@ -33,6 +40,8 @@ import ca.udes.android_projectweather.utils.WeatherUtil;
 public class SharedPreferenceManager {
 
     private static final String TAG = SharedPreferenceManager.class.getSimpleName();
+
+
 
 
     private SharedPreferences prefs;
@@ -46,6 +55,7 @@ public class SharedPreferenceManager {
      */
     private SharedPreferenceManager(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        //prefs = PreferenceManager.getSharedPreferences(Constants.PREF_CITY_FAV, MODE_PRIVATE)
     }
 
     /**
@@ -128,7 +138,21 @@ public class SharedPreferenceManager {
      */
     public String getCityListFav() {
 
-        String listFav = prefs.getString(Constants.PREF_CITY_FAV, Constants.PREF_CITY_DEFAULT);
+        /*SharedPreferences settings;
+        settings = getApplicationContext().getSharedPreferences(Constants.PREF_CITY_FAV, MODE_PRIVATE); //1*/
+
+        //SharedPreferences settings = mycontext.getSharedPreferences("LOCAL", MODE_PRIVATE); //1*/
+
+        //Preference prefCity = prefs.;
+        //SharedGenerique lol = new SharedGenerique();
+        //String listFav= lol.getFav();
+
+
+
+
+        String listFav = prefs.getString("save_fav", "");
+
+        listFav = ","+listFav;
 
         return listFav;
     }
@@ -207,10 +231,15 @@ public class SharedPreferenceManager {
      *
      * @return
      */
-    public String getSelectedCityFav(int refreshOrFav){
+    public String getSelectedCityFav(int refreshOrFav, String ListFav){
         String finalCity = "";
-        String listCity =  getCity() + "," + getCityListFav(); //ex:villeDeParamete,ville fav1, ville fav2
-        Log.e("My App", "################################"+listCity);
+        if(ListFav==null){
+            ListFav="";
+        }else{
+            ListFav=","+ListFav;
+        }
+        String listCity =  getCity() + ListFav; //ex:villeDeParamete,ville fav1, ville fav2
+        Log.e("My App", "################################ "+listCity);
 
         String[] parts = listCity.split(",");
         int sizeTab = parts.length;
@@ -257,4 +286,6 @@ public class SharedPreferenceManager {
     public String getTempUnit(){
         return isUnitMetric() ? Constants.API_METRIC : Constants.API_IMPERIAL;
     }
+
+
 }

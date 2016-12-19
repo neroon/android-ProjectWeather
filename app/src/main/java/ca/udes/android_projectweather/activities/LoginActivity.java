@@ -1,11 +1,13 @@
 package ca.udes.android_projectweather.activities;
 
 import android.content.SharedPreferences;
+import android.preference.Preference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.AsyncTask;
 
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -30,13 +32,15 @@ import java.net.URL;
 
 
 import ca.udes.android_projectweather.R;
-
+import ca.udes.android_projectweather.managers.SharedPreferenceManager;
+import ca.udes.android_projectweather.utils.Constants;
 
 
 /**
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity {
+
 
     //Log
     private static final String LOG_TAG = "test";
@@ -62,13 +66,15 @@ public class LoginActivity extends AppCompatActivity {
 
 
     //SharedPreference bien vérifier avec les CONSTANTS
-    String PREFS_NAME = "key_city_fav";
+    String PREFS_NAME = "LOCAL";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
 
 
         //MEAN inscription
@@ -540,8 +546,6 @@ public class LoginActivity extends AppCompatActivity {
 
         return save_fav;
     }
-
-
 
 
 }

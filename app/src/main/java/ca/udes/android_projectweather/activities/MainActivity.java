@@ -205,7 +205,9 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
     private void getCombinedDataByCity() {
         showProgressBar();
         if (prefs != null) {
-            String selectedCity = prefs.getSelectedCity();
+            //On récupere la ville dans sharedPreference
+            //String selectedCity = prefs.getSelectedCity(); //ancien
+            String selectedCity = prefs.getSelectedCityFav(); ////ex:villeDeParamete,ville fav1, ville fav2
             Observable<CombinedData> combined2 = Observable.zip(getWeatherByCity(selectedCity),
                     getForecastByCity(selectedCity), new Func2<WeatherData, ForecastDailyData, CombinedData>() {
                         @Override
@@ -335,8 +337,12 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivityForResult(intent, SETTINGS_ACTION);
         } else if (id == R.id.menu_favorite) {
-            Snackbar.make(this.findViewById(R.id.menu_favorite), "Ajouter aux favoris", Snackbar.LENGTH_LONG)
+            Snackbar.make(this.findViewById(R.id.menu_favorite), "Favoris suivants", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
+            updateCombinedData();
+
+
+
         } else if (id == R.id.menu_about) {
             Intent intent = new Intent(this, AboutActivity.class);
             startActivity(intent);

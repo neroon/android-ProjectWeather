@@ -19,6 +19,7 @@ package ca.udes.android_projectweather.managers;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import ca.udes.android_projectweather.utils.Constants;
 import ca.udes.android_projectweather.utils.WeatherUtil;
@@ -31,7 +32,11 @@ import ca.udes.android_projectweather.utils.WeatherUtil;
 @SuppressWarnings("unused")
 public class SharedPreferenceManager {
 
+    private static final String TAG = SharedPreferenceManager.class.getSimpleName();
+
+
     private SharedPreferences prefs;
+    private int INDEX = 0;
 
     /**
      * SharedPreferenceManager
@@ -116,6 +121,18 @@ public class SharedPreferenceManager {
     }
 
     /**
+     * getCity a partir de la liste des favoris
+     *
+     * @return sherbrooke par defaut si il n'y a pas de PREF_CITY
+     */
+    public String getCityListFav() {
+
+        String listFav = prefs.getString(Constants.PREF_CITY_FAV, Constants.PREF_CITY_DEFAULT);
+
+        return listFav;
+    }
+
+    /**
      * setCity
      *
      * @param city
@@ -176,6 +193,37 @@ public class SharedPreferenceManager {
      */
     public String getSelectedCity(){
         return getCity() + "," + WeatherUtil.getCountry(getCountry());
+    }
+
+    /**
+     * getSelectedListFav
+     * Principe on affichera toujours en 1er la météo qui est sauvegardé a partir des parametres
+     * Ensuite on met a la suite les villes favoris
+     * index permet de switcher entre les villes
+     *
+     * @return
+     */
+    public String getSelectedCityFav(){
+        String finalCity = "";
+        String listCity =  getCity() + "," + getCityListFav(); //ex:villeDeParamete,ville fav1, ville fav2
+        Log.e("My App", "################################"+listCity);
+
+        String[] parts = listCity.split(",");
+        int sizeTab = parts.length;
+        //on repart a 0
+        Log.e("My App", "INDEX  ################################ "+finalCity +"   INDEX "+INDEX);
+        if(INDEX>=sizeTab){
+            INDEX=0;
+            finalCity = parts[INDEX];
+            Log.e("My App", "IF  ################################ "+finalCity +"   INDEX "+INDEX);
+            INDEX=INDEX+1;
+        }else{
+            finalCity = parts[INDEX];
+            Log.e("My App", "ELSE  ################################ "+finalCity +"   INDEX "+INDEX);
+            INDEX=INDEX+1;
+        }
+
+        return finalCity;
     }
 
     /**

@@ -61,8 +61,8 @@ public class LoginActivity extends AppCompatActivity {
     private AutoCompleteTextView mFavEditView;
 
 
-    //SharedPreference
-    String PREFS_NAME = "LOCAL";
+    //SharedPreference bien vérifier avec les CONSTANTS
+    String PREFS_NAME = "key_city_fav";
 
 
     @Override

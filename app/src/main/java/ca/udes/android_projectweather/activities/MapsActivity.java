@@ -112,28 +112,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        Log.d(TAG, "mTypeCarte1=" + mTypeCarte);
         if (item.getItemId() == android.R.id.home) {
             finish();
         } else if (id == R.id.menu_map) {
-            Log.d(TAG, "mTypeCarte2=" + mTypeCarte);
-            if (mTypeCarte == true) {
-                Log.d(TAG, "mTypeCarte3=" + mTypeCarte);
+            if (mTypeCarte) {
                 mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-                Log.d(TAG, "mMap=" + mMap);
                 mTypeCarte = false;
-                Snackbar.make(this.findViewById(R.id.menu_map), "Changement de filtre HYBRID...", Snackbar.LENGTH_LONG)
+                Snackbar.make(this.findViewById(R.id.menu_map), "Modification...", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             } else {
-                Log.d(TAG, "mTypeCarte4=" + mTypeCarte);
-                mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
-                Log.d(TAG, "mMap2=" + mMap);
+                mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
                 mTypeCarte = true;
-                Snackbar.make(this.findViewById(R.id.menu_map), "Changement de filtre SATELITTE...", Snackbar.LENGTH_LONG)
+                Snackbar.make(this.findViewById(R.id.menu_map), "Modificarion...", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         }
-        Log.d(TAG, "mTypeCarte5=" + mTypeCarte);
         return super.onOptionsItemSelected(item);
     }
 

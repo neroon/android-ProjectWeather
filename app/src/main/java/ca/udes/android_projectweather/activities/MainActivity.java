@@ -31,6 +31,8 @@ import android.location.Location;
 import android.support.v4.view.ViewPager;
 import android.support.design.widget.TabLayout;
 
+import java.io.IOException;
+
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -313,6 +315,13 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
         return true;
     }
 
+    private void updateCombinedData(){
+        if (mLocationProvider != null) {
+            getCombinedDataByLocation();
+        } else {
+            getCombinedDataByCity();
+        }
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -321,8 +330,7 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
         if (id == R.id.menu_refresh) {
             Snackbar.make(this.findViewById(R.id.menu_refresh), "Updating...", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
-            getCombinedDataByCity();
-            getCombinedDataByLocation();
+            updateCombinedData();
         } else if (id == R.id.menu_settings) {
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivityForResult(intent, SETTINGS_ACTION);

@@ -1,13 +1,11 @@
 package ca.udes.android_projectweather.activities;
 
 import android.content.SharedPreferences;
-import android.preference.Preference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.AsyncTask;
 
 
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -32,8 +30,7 @@ import java.net.URL;
 
 
 import ca.udes.android_projectweather.R;
-import ca.udes.android_projectweather.managers.SharedPreferenceManager;
-import ca.udes.android_projectweather.utils.Constants;
+
 
 
 /**

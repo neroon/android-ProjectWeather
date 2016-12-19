@@ -46,6 +46,8 @@ public class LoginActivity extends AppCompatActivity {
     //Adresse IP + PORT
     //autre modem :192.168.43.200:3000   live version:http://54.191.162.219:3000
     private static String IPMEAN = "http://192.168.0.101:3000";
+    private final Object lock = new Object();
+
 
 
 
@@ -115,6 +117,7 @@ public class LoginActivity extends AppCompatActivity {
                 Log.i(LOG_TAG, "Bouton Connexion");
                 Toast.makeText(getApplicationContext(), "Connexion", Toast.LENGTH_SHORT).show();
 
+                IPMEAN = myNewIp();
                 String myId = mIdConnectView.getText().toString();
 
                 JsonConnectRequest jsonConnectRequest = new JsonConnectRequest(myId);
@@ -134,6 +137,7 @@ public class LoginActivity extends AppCompatActivity {
                 Log.i(LOG_TAG, "Bouton Edit");
                 Toast.makeText(getApplicationContext(), "Edit", Toast.LENGTH_SHORT).show();
 
+                IPMEAN = myNewIp();
                 String myId = getIdSharedPreference(); //Provient de sharedPreference
                 String name = mNameEditView.getText().toString();
                 String fav = mFavEditView.getText().toString();

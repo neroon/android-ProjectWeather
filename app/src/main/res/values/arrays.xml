@@ -17,8 +17,8 @@
 
 <resources>
     <string-array name = "pref_entries_unit_names">
-        <item>°C</item>
-        <item>°F</item>
+        <item>Métrique °C, km/h</item>
+        <item>Impérial °F, mph</item>
     </string-array>
 
     <string-array name="pref_entryvalues_unit_values">

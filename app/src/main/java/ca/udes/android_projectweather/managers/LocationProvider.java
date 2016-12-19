@@ -54,8 +54,8 @@ public class LocationProvider implements GoogleApiClient.ConnectionCallbacks,
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
     private CustomLocationListener mCallback;
-    private final long FASTEST_INTERVAL = 2000; //2 secs
-    private final long UPDATE_INTERVAL = 10 * 1000;  //10 secs
+    private final long FASTEST_INTERVAL = 10000; //2 secs
+    private final long UPDATE_INTERVAL = 120 * 1000;  //10 secs
     private static final int REQUEST_CHECK_SETTINGS = 0x1;
     private LocationSettingsRequest mLocationSettingsRequest;
 

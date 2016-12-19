@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2016 University of Sherbrooke
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,12 +15,19 @@
   -->
 
 <resources>
-    <string name="app_name">Project Weather</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Material Weather</string>
+
+    //Menu
+    <string name="menu_refresh">Rafraîchir</string>
+    <string name="menu_favorite">Favoris</string>
+    <string name="menu_settings">Paramètres</string>
+    <string name="menu_about">A propos</string>
+    <string name="menu_map">Carte</string>
+    <string name="menu_connection">Connexion</string>
 
     //Tabs
-    <string name="tab_current">Current</string>
-    <string name="tab_forecast">Forecast</string>
+    <string name="tab_current">Vue d\'ensemble</string>
+    <string name="tab_forecast">Prévisions quotidiennes</string>
 
     //Weather Icons
     <string name="weather_sunny">&#xf00d;</string>
@@ -38,9 +44,12 @@
     <string name="weather_degrees_c">&#xf03c;</string>
 
     //Weather details
+    <string name="weather_temperature">&#xf055;</string>
+    <string name="weather_rain">&#xf019;</string>
+    <string name="weather_wind">&#xf050;</string>
     <string name="weather_humidity">&#xf07a;</string>
     <string name="weather_barometer">&#xf079;</string>
-    <string name="weather_wind">&#xf050;</string>
+    <string name="weather_visibility">&#xf079;</string>
     <string name="weather_sunrise">&#xf051;</string>
     <string name="weather_sunset">&#xf052;</string>
 
@@ -48,23 +57,36 @@
     <string name="weather_unit_metric">°C</string>
     <string name="weather_unit_imp">°F</string>
 
+    //Google Maps
+    <string name="title_activity_maps">Position du comment sur la carte</string>
+    <string name="default_info_title">Position par défaut</string>
+    <string name="default_info_snippet">Aucun lieu n\'a été trouvé car l\'authorisation de la position n\'est pas activée.</string>
+
     //Preferences
     <string name="pref_key_location_toggle">key_location_toggle</string>
     <string name="pref_key_city">key_city</string>
     <string name="pref_key_country">key_country</string>
     <string name="pref_key_unit">key_unit</string>
+    <string name="pref_key_notification_toggle">key_notification_toggle</string>
 
-    <string name="pref_category_location">Location</string>
-    <string name="pref_title_location_toggle">Use Location</string>
-    <string name="pref_title_city">City Name</string>
-    <string name="pref_summary_city_null">Please provide your city name</string>
+    <string name="pref_category_location">Position</string>
+    <string name="pref_title_location_toggle">Utiliser la position GPS</string>
+    <string name="pref_title_city">Nom de la ville</string>
+    <string name="pref_summary_city_null">S\'il vous plaît, veuillez rentrer un nom de ville</string>
     <string name="pref_default_city">Sherbrooke</string>
-    <string name="pref_title_country">Country Name</string>
-    <string name="pref_default_country">United States</string>
-    <string name="pref_country_dialog_title">Select Country</string>
+    <string name="pref_title_country">Nom du pays</string>
+    <string name="pref_default_country">Canada</string>
+    <string name="pref_country_dialog_title">Choississez un pays</string>
 
-    <string name="pref_category_unit">Unit of Measure</string>
+    <string name="pref_category_unit">Mesures</string>
     <string name="pref_default_unit">c</string>
-    <string name="pref_title_temperature">Temperature</string>
-    <string name="pref_temperature_summary">Current Unit:</string>
+    <string name="pref_title_unites">Unités</string>
+    <string name="pref_temperature_summary">Unité :</string>
+
+    <string name="pref_category_notification">Notification</string>
+    <string name="pref_title_notification_toggle">Activer les notifications</string>
+
+    //About activity
+    <string name="title_activity_about">A propos</string>
+
 </resources>

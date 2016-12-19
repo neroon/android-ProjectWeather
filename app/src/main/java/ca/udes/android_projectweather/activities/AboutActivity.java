@@ -15,45 +15,47 @@
  */
 package ca.udes.android_projectweather.activities;
 
-import android.view.Menu;
+import android.os.Bundle;
 import android.view.MenuItem;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.support.v7.app.AppCompatActivity;
 
 import ca.udes.android_projectweather.R;
 
 /**
- * PermissionsActivity
+ * AboutActivity
  *
  * @version 1.0
  */
-public class BaseActivity extends AppCompatActivity {
+public class AboutActivity extends AppCompatActivity {
 
-    protected final static int SETTINGS_ACTION = 99;
+    Toolbar toolbar;
 
-    @Override
-    public void setContentView(int layoutResID) {
-        super.setContentView(layoutResID);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+    public AboutActivity() {
+        // Required empty public constructor
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_about);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        final ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setDisplayShowHomeEnabled(true);
+            ab.setDisplayHomeAsUpEnabled(true);
+            ab.setTitle(getString(R.string.menu_about));
+        }
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivityForResult(intent, SETTINGS_ACTION);
+        if (item.getItemId() == android.R.id.home) {
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }

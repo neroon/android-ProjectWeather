@@ -62,31 +62,32 @@ public final class ModelConstants {
     public static final String FIELD_CITY = "city";
     public static final String FIELD_CNT = "cnt";
     public static final String FIELD_LIST = "list";
-    public static final String FIELD_LATITUDE = "lat";
-    public static final String FIELD_LONGITUDE = "long";
-    public static final String FIELD_DESCRIPTION = "description";
-    public static final String FIELD_ICON = "icon";
+
+    static final String FIELD_LATITUDE = "lat";
+    static final String FIELD_LONGITUDE = "long";
+    static final String FIELD_DESCRIPTION = "description";
+    static final String FIELD_ICON = "icon";
 
     /** Language enum strings */
-    public static final String LANGUAGE_ROMANIAN = "ro";
-    public static final String LANGUAGE_FINNISH = "fi";
-    public static final String LANGUAGE_BULGARIAN = "bg";
-    public static final String LANGUAGE_CATALAN = "ca";
-    public static final String LANGUAGE_RUSSIAN = "ru";
-    public static final String LANGUAGE_GERMAN = "de";
-    public static final String LANGUAGE_ENGLISH = "en";
-    public static final String LANGUAGE_SPANISH = "es";
-    public static final String LANGUAGE_FRENCH = "fr";
-    public static final String LANGUAGE_CROATIAN = "hr";
-    public static final String LANGUAGE_ITALIAN = "it";
-    public static final String LANGUAGE_DUTCH = "nl";
-    public static final String LANGUAGE_POLISH = "pl";
-    public static final String LANGUAGE_PORTUGUESE = "pt";
-    public static final String LANGUAGE_SWEDISH = "sv";
-    public static final String LANGUAGE_TURKISH = "tr";
-    public static final String LANGUAGE_UKRAINIAN = "uk";
-    public static final String LANGUAGE_SIMPLIFIED_CHINESE = "zh";
-    public static final String LANGUAGE_TRADITIONAL_CHINESE = "zh-tw";
+    static final String LANGUAGE_ROMANIAN = "ro";
+    static final String LANGUAGE_FINNISH = "fi";
+    static final String LANGUAGE_BULGARIAN = "bg";
+    static final String LANGUAGE_CATALAN = "ca";
+    static final String LANGUAGE_RUSSIAN = "ru";
+    static final String LANGUAGE_GERMAN = "de";
+    static final String LANGUAGE_ENGLISH = "en";
+    static final String LANGUAGE_SPANISH = "es";
+    static final String LANGUAGE_FRENCH = "fr";
+    static final String LANGUAGE_CROATIAN = "hr";
+    static final String LANGUAGE_ITALIAN = "it";
+    static final String LANGUAGE_DUTCH = "nl";
+    static final String LANGUAGE_POLISH = "pl";
+    static final String LANGUAGE_PORTUGUESE = "pt";
+    static final String LANGUAGE_SWEDISH = "sv";
+    static final String LANGUAGE_TURKISH = "tr";
+    static final String LANGUAGE_UKRAINIAN = "uk";
+    static final String LANGUAGE_SIMPLIFIED_CHINESE = "zh";
+    static final String LANGUAGE_TRADITIONAL_CHINESE = "zh-tw";
 
     /** Unit enum strings */
     static final String UNIT_METRIC = "imperial";

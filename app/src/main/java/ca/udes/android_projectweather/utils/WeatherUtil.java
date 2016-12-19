@@ -173,22 +173,74 @@ public final class WeatherUtil {
         return iconText;
     }
 
-    public static String getHumidityIcon() {
-        return mContext.getString(R.string.weather_humidity);
+    /**
+     * Get the temperature icon.
+     *
+     * @return      mContext
+     */
+    public static String getTemperatureIcon() {
+        return mContext.getString(R.string.weather_temperature);
     }
 
-    public static String getPressureIcon() {
-        return mContext.getString(R.string.weather_barometer);
+    /**
+     * Get the rain icon.
+     *
+     * @return      mContext
+     */
+    public static String getRainIcon() {
+        return mContext.getString(R.string.weather_rain);
     }
 
+    /**
+     * Get the wind icon.
+     *
+     * @return      mContext
+     */
     public static String getWindIcon() {
         return mContext.getString(R.string.weather_wind);
     }
 
+    /**
+     * Get the humidity icon.
+     *
+     * @return      mContext
+     */
+    public static String getHumidityIcon() {
+        return mContext.getString(R.string.weather_humidity);
+    }
+
+    /**
+     * Get the pressure icon.
+     *
+     * @return      mContext
+     */
+    public static String getPressureIcon() {
+        return mContext.getString(R.string.weather_barometer);
+    }
+
+    /**
+     * Get the visibility icon.
+     *
+     * @return      mContext
+     */
+    public static String getVisibilityIcon() {
+        return mContext.getString(R.string.weather_visibility);
+    }
+
+    /**
+     * Get the sunrise icon.
+     *
+     * @return      mContext
+     */
     public static String getSunriseIcon() {
         return mContext.getString(R.string.weather_sunrise);
     }
 
+    /**
+     * Get the sunset icon.
+     *
+     * @return      mContext
+     */
     public static String getSunsetIcon() {
         return mContext.getString(R.string.weather_sunset);
     }

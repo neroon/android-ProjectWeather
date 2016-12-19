@@ -67,7 +67,7 @@ public class WeatherFragment extends Fragment {
     /**
      * Update data.
      *
-     * @param forecastData
+     * @param weatherData
      */
     public void updateData(WeatherData weatherData) {
         mWeatherAdapter.setWeatherData(weatherData);

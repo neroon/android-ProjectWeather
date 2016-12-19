@@ -36,7 +36,7 @@ import ca.udes.android_projectweather.models.forecastdailymodel.ForecastDailyDat
 public class ForecastDailyAdapter extends RecyclerView.Adapter<ForecastDailyAdapter.ViewHolder> {
 
     private Context mContext;
-    private ForecastDailyData mForecastData = new ForecastDailyData();
+    private ForecastDailyData mForecastDailyData = new ForecastDailyData();
     private SharedPreferenceManager prefs;
 
     public ForecastDailyAdapter(Context context) {
@@ -46,7 +46,7 @@ public class ForecastDailyAdapter extends RecyclerView.Adapter<ForecastDailyAdap
 
     @Override
     public int getItemCount() {
-        return mForecastData.getList().size();
+        return mForecastDailyData.getList().size();
     }
 
     @Override
@@ -56,18 +56,18 @@ public class ForecastDailyAdapter extends RecyclerView.Adapter<ForecastDailyAdap
 
     @Override
     public void onBindViewHolder(ForecastDailyAdapter.ViewHolder holder, int position) {
-        if(mForecastData.getList() != null){
-            ListDaily forecastItem = mForecastData.getList().get(position);
+        if(mForecastDailyData.getList() != null){
+            ListDaily forecastItem = mForecastDailyData.getList().get(position);
             holder.tvIcon.setText(WeatherUtil.getWeatherIcon(forecastItem.getListWeather().get(0).getWeatherId()));
             holder.tvWeekday.setText(WeatherUtil.getWeekDay(forecastItem.getListDt()));
             holder.tvCondition.setText(forecastItem.getListWeather().get(0).getWeatherDescription());
-            holder.tvTempMin.setText(WeatherUtil.getTempString(forecastItem.getListTemp().getListTempMin(), prefs.isUnitMetric()));
-            holder.tvTempMax.setText(WeatherUtil.getTempString(forecastItem.getListTemp().getListTempMax(), prefs.isUnitMetric()));
+            holder.tvTempMin.setText("MIN: " + WeatherUtil.getTempString(forecastItem.getListTemp().getListTempMin(), prefs.isUnitMetric()));
+            holder.tvTempMax.setText("MAX: " + WeatherUtil.getTempString(forecastItem.getListTemp().getListTempMax(), prefs.isUnitMetric()));
         }
     }
 
     public void setForecastData(ForecastDailyData forecastDailyData) {
-        mForecastData = forecastDailyData;
+        mForecastDailyData = forecastDailyData;
         notifyDataSetChanged();
     }
 

@@ -43,7 +43,7 @@ public class Rain implements Serializable {
      * @return      mRain
      */
     @Nullable
-    public Double getRain() {
+    public Double getRainAll() {
         return mRain;
     }
 }

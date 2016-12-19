@@ -32,20 +32,20 @@ import rx.Observable;
  */
 public interface ApiInterface {
 
-    @GET(Constants.API_WEATHER + Constants.API_APP_ID)
+    @GET(Constants.API_WEATHER + Constants.API_APP_ID_LANG)
     Observable<WeatherData> getWeatherByCity(@Query("q") String CityName,
                                              @Query("units") String units);
 
-    @GET(Constants.API_FORECAST_DAILY + Constants.API_APP_ID)
+    @GET(Constants.API_FORECAST_DAILY + Constants.API_APP_ID_LANG)
     Observable<ForecastDailyData> getForecastDailyByCity(@Query("q") String CityName,
                                                          @Query("units") String units);
 
-    @GET(Constants.API_WEATHER + Constants.API_APP_ID)
+    @GET(Constants.API_WEATHER + Constants.API_APP_ID_LANG)
     Observable<WeatherData> getWeatherByLocation(@Query("lat") String lat,
                                                  @Query("lon") String lon,
                                                  @Query("units") String units);
 
-    @GET(Constants.API_FORECAST_DAILY + Constants.API_APP_ID)
+    @GET(Constants.API_FORECAST_DAILY + Constants.API_APP_ID_LANG)
     Observable<ForecastDailyData> getForecastDailyByLocation(@Query("q") String CityName,
                                                              @Query("lon") String lon,
                                                              @Query("units") String units);

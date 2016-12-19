@@ -33,67 +33,166 @@ public class SharedPreferenceManager {
 
     private SharedPreferences prefs;
 
+    /**
+     * SharedPreferenceManager
+     *
+     * @param context
+     */
     private SharedPreferenceManager(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
+    /**
+     * SharedPreferenceManager
+     *
+     * @param context
+     * @return
+     */
     public static SharedPreferenceManager from(Context context) {
         return new SharedPreferenceManager(context);
     }
 
+    /**
+     * registerChangeListener
+     *
+     * @param listener
+     */
     public void registerChangeListener(SharedPreferences.OnSharedPreferenceChangeListener listener) {
         prefs.registerOnSharedPreferenceChangeListener(listener);
     }
 
+    /**
+     * unregisterChangeListener
+     *
+     * @param listener
+     */
     public void unregisterChangeListener(SharedPreferences.OnSharedPreferenceChangeListener listener){
         prefs.unregisterOnSharedPreferenceChangeListener(listener);
     }
 
+    /**
+     * setLocationToggle
+     *
+     * @param locationToggle
+     */
     public void setLocationToggle(boolean locationToggle){
         prefs.edit().putBoolean(Constants.PREF_LOCATION_TOGGLE, locationToggle).apply();
     }
 
+    /**
+     * getLocationToggle
+     *
+     * @return
+     */
     public boolean getLocationToggle() {
         return prefs.getBoolean(Constants.PREF_LOCATION_TOGGLE, true);
     }
 
+    /**
+     * setNotificationToggle
+     *
+     * @param notificationToggle
+     */
+    public void setNotificationToggle(boolean notificationToggle){
+        prefs.edit().putBoolean(Constants.PREF_NOTIFICATION_TOGGLE, notificationToggle).apply();
+    }
+
+    /**
+     * getNotificationToggle
+     *
+     * @return
+     */
+    public boolean getNotificationToggle() {
+        return prefs.getBoolean(Constants.PREF_NOTIFICATION_TOGGLE, true);
+    }
+
+    /**
+     * getCity
+     *
+     * @return
+     */
     public String getCity() {
         return prefs.getString(Constants.PREF_CITY, Constants.PREF_CITY_DEFAULT);
     }
 
+    /**
+     * setCity
+     *
+     * @param city
+     */
     public void setCity(String city) {
         prefs.edit().putString(Constants.PREF_CITY, city).apply();
     }
 
+    /**
+     * getCountry
+     *
+     * @return
+     */
     public String getCountry() {
         return prefs.getString(Constants.PREF_COUNTRY, Constants.PREF_COUNTRY_DEFAULT);
     }
 
+    /**
+     * setCountry
+     *
+     * @param country
+     */
     public void setCountry(String country) {
         prefs.edit().putString(Constants.PREF_COUNTRY, country).apply();
     }
 
+    /**
+     * isUnitMetric
+     *
+     * @return
+     */
     public boolean isUnitMetric(){
         return getUnit().equalsIgnoreCase(Constants.PREF_UNIT_METRIC);
     }
 
+    /**
+     * getUnit
+     *
+     * @return
+     */
     public String getUnit() {
         return prefs.getString(Constants.PREF_UNIT, Constants.PREF_UNIT_METRIC);
     }
 
+    /**
+     * setUnit
+     *
+     * @param unit
+     */
     public void setUnit(String unit) {
         prefs.edit().putString(Constants.PREF_UNIT, unit).apply();
     }
 
+    /**
+     * getSelectedCity
+     *
+     * @return
+     */
     public String getSelectedCity(){
         return getCity() + "," + WeatherUtil.getCountry(getCountry());
     }
 
+    /**
+     * getWindSpeedUnit
+     *
+     * @return
+     */
     public String getWindSpeedUnit(){
         return isUnitMetric() ? Constants.DETAIL_LABEL_WIND_METRIC :
                 Constants.DETAIL_LABEL_WIND_IMP;
     }
 
+    /**
+     * getTempUnit
+     *
+     * @return
+     */
     public String getTempUnit(){
         return isUnitMetric() ? Constants.API_METRIC : Constants.API_IMPERIAL;
     }

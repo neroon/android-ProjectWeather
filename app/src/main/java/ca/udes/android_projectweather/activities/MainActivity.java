@@ -15,7 +15,13 @@
  */
 package ca.udes.android_projectweather.activities;
 
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.os.Bundle;
 import android.app.Activity;
@@ -50,9 +56,11 @@ import ca.udes.android_projectweather.managers.SharedPreferenceManager;
  *
  * @version 1.0
  */
-public class MainActivity extends BaseActivity implements LocationProvider.CustomLocationListener {
+public class MainActivity extends AppCompatActivity implements LocationProvider.CustomLocationListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+
+    protected final static int SETTINGS_ACTION = 99;
 
     private static final int REQUEST_CHECK_SETTINGS = 0x1;
     private ViewPagerAdapter mAdapter;
@@ -65,11 +73,29 @@ public class MainActivity extends BaseActivity implements LocationProvider.Custo
     private CompositeSubscription mCompositeSubscription;
 
     @Override
+    public void setContentView(int layoutResID) {
+        super.setContentView(layoutResID);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mCompositeSubscription = new CompositeSubscription();
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMaps = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(intentMaps);
+            }
+        });
+
         initUi();
         initPrefs();
     }
@@ -96,6 +122,7 @@ public class MainActivity extends BaseActivity implements LocationProvider.Custo
         prefs = SharedPreferenceManager.from(this);
         mTempUnit = prefs.getTempUnit();
         getLocationPrefs();
+        getNotificationPrefs();
     }
 
     private void getLocationPrefs() {
@@ -107,6 +134,9 @@ public class MainActivity extends BaseActivity implements LocationProvider.Custo
         else {
             getCombinedDataByCity();
         }
+    }
+
+    private void getNotificationPrefs() {
     }
 
     @Override
@@ -275,5 +305,37 @@ public class MainActivity extends BaseActivity implements LocationProvider.Custo
         if (mProgressBar.getVisibility() == View.VISIBLE) {
             mProgressBar.setVisibility(View.GONE);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.menu_refresh) {
+            Snackbar.make(this.findViewById(R.id.menu_refresh), "Updating...", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+            getCombinedDataByCity();
+            getCombinedDataByLocation();
+        } else if (id == R.id.menu_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivityForResult(intent, SETTINGS_ACTION);
+        } else if (id == R.id.menu_favorite) {
+            Snackbar.make(this.findViewById(R.id.menu_favorite), "Ajouter aux favoris", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+        } else if (id == R.id.menu_about) {
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.menu_connection) {
+            Snackbar.make(this.findViewById(R.id.menu_favorite), "Connection clicked", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

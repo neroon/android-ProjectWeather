@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2016 University of Sherbrooke
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/scrollAbout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="20dp">
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:columnCount="1"
+                    android:rowCount="3"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp">
+
+                    <ImageView
+                        android:id="@+id/img_first"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="logo"
+                        android:src="@mipmap/ic_launcher"
+                        android:layout_columnSpan="1"
+                        android:layout_rowSpan="1"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/nameapp"
+                        android:text="Material Weather"
+                        android:layout_gravity="center"
+                        android:textStyle="normal"
+                        android:textSize="18sp"
+                        android:textColor="@color/md_black_1000"
+                        android:layout_columnSpan="1"
+                        android:layout_rowSpan="1"
+                        android:paddingTop="10dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/versionapp"
+                        android:text="v2.1"
+                        android:layout_gravity="center"
+                        android:textColor="@color/md_grey_700"
+                        android:textStyle="normal"
+                        android:textSize="14sp"
+                        android:layout_columnSpan="1"
+                        android:layout_rowSpan="1" />
+
+                </GridLayout>
+
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/darker_gray"
+                    android:columnCount="0"
+                    android:rowCount="0"
+                    android:padding="15dp"
+                    android:layout_marginLeft="25dp" />
+
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="28dp"
+                    android:layout_marginTop="10dp"
+                    android:columnCount="6"
+                    android:rowCount="8"
+                    android:padding="15dp"
+                    android:layout_marginLeft="25dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/type"
+                        android:text="Développeurs"
+                        android:layout_gravity="top|left|center"
+                        android:textColor="@color/md_black_1000"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_columnSpan="1"
+                        android:layout_rowSpan="1"
+                        android:layout_row="0"
+                        android:layout_column="0" />
+
+                    <ImageView
+                        android:id="@+id/img_colombies"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="logo"
+                        android:src="@drawable/profil_picture"
+                        android:layout_row="4"
+                        android:layout_column="0"
+                        android:layout_marginTop="5dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/colombies"
+                        android:text="Colombies Olivier"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/md_grey_700"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
+                        android:paddingLeft="20dp"
+                        android:layout_row="4"
+                        android:layout_column="1" />
+
+                    <ImageView
+                        android:id="@+id/img_gonin"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="logo"
+                        android:src="@drawable/profil_picture"
+                        android:layout_row="5"
+                        android:layout_column="0"
+                        android:layout_marginTop="5dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gonin"
+                        android:text="Gonin Laurent"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/md_grey_700"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
+                        android:paddingLeft="20dp"
+                        android:layout_row="5"
+                        android:layout_column="1" />
+
+                    <ImageView
+                        android:id="@+id/img_onno"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="logo"
+                        android:src="@drawable/profil_picture"
+                        android:layout_row="6"
+                        android:layout_column="0"
+                        android:layout_marginTop="5dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/onno"
+                        android:text="Onno Tevaite"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/md_grey_700"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
+                        android:paddingLeft="20dp"
+                        android:layout_row="6"
+                        android:layout_column="1" />
+
+                    <ImageView
+                        android:id="@+id/img_schultz"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="logo"
+                        android:src="@drawable/profil_picture"
+                        android:layout_row="7"
+                        android:layout_column="0"
+                        android:layout_marginTop="5dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/Schultz"
+                        android:text="Schultz Olivier"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/md_grey_700"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
+                        android:paddingLeft="20dp"
+                        android:layout_row="7"
+                        android:layout_column="1" />
+                </GridLayout>
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/darker_gray"
+                    android:columnCount="0"
+                    android:rowCount="0"
+                    android:padding="15dp"
+                    android:layout_marginLeft="25dp" />
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="28dp"
+                    android:layout_marginTop="10dp"
+                    android:columnCount="1"
+                    android:rowCount="6"
+                    android:padding="15dp"
+                    android:layout_marginLeft="25dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/type3"
+                        android:text="Licences Open Source"
+                        android:layout_gravity="top|left|center"
+                        android:textColor="@color/md_black_1000"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_columnSpan="1"
+                        android:layout_rowSpan="1" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/owo"
+                        android:text="OpenWeatherMap"
+                        android:textColor="@color/md_grey_700"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp"
+                        android:layout_columnSpan="1"
+                        android:layout_rowSpan="2"
+                        android:layout_gravity="center_vertical" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/fi"
+                        android:text="Retrofit2"
+                        android:textColor="@color/md_grey_700"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp"
+                        android:layout_columnSpan="1"
+                        android:layout_rowSpan="3"
+                        android:layout_gravity="center_vertical" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ae"
+                        android:text="OkHttp"
+                        android:textColor="@color/md_grey_700"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp"
+                        android:layout_columnSpan="1"
+                        android:layout_rowSpan="4"
+                        android:layout_gravity="center_vertical" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/f"
+                        android:text="RxJava"
+                        android:textColor="@color/md_grey_700"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp"
+                        android:layout_columnSpan="1"
+                        android:layout_rowSpan="5"
+                        android:layout_gravity="center_vertical" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/fa"
+                        android:text="LeakCanary"
+                        android:textColor="@color/md_grey_700"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp"
+                        android:layout_columnSpan="1"
+                        android:layout_rowSpan="5"
+                        android:layout_gravity="center_vertical" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/fab"
+                        android:text="Picasso"
+                        android:textColor="@color/md_grey_700"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp"
+                        android:layout_columnSpan="1"
+                        android:layout_rowSpan="5"
+                        android:layout_gravity="center_vertical" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/faba"
+                        android:text="MPAndroidChart"
+                        android:textColor="@color/md_grey_700"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp"
+                        android:layout_columnSpan="1"
+                        android:layout_rowSpan="5"
+                        android:layout_gravity="center_vertical" />
+
+                </GridLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+    </FrameLayout>
+
+</LinearLayout>

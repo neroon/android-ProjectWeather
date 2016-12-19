@@ -35,10 +35,21 @@ public class WeatherDetailLayout extends LinearLayout {
     private TextView mLabel;
     private TextView mValue;
 
+    /**
+     *  WeatherDetailLayout
+     *
+     * @param context
+     * @param attrs
+     */
     public WeatherDetailLayout(Context context, AttributeSet attrs){
         super(context, attrs);
     }
 
+    /**
+     * WeatherDetailLayout
+     *
+     * @param context
+     */
     public WeatherDetailLayout(Context context){
         this(context, null);
 
@@ -56,14 +67,29 @@ public class WeatherDetailLayout extends LinearLayout {
         mValue = (TextView) findViewById(R.id.tv_value);
     }
 
+    /**
+     * Set the icon in the textview.
+     *
+     * @param icon
+     */
     public void setIcon(String icon){
         mIcon.setText(icon);
     }
 
+    /**
+     * Set the icon in the textview.
+     *
+     * @param label
+     */
     public void setLabel(String label){
         mLabel.setText(label);
     }
 
+    /**
+     * Set the icon in the textview.
+     *
+     * @param value
+     */
     public void setValue(String value){
         mValue.setText(value);
     }

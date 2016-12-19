@@ -25,8 +25,8 @@ task clean(type: Delete) {
 // Define versions in a single place
 ext {
     // Sdk and tools
-    minSdkVersion = 24
-    targetSdkVersion = 25
+    minSdkVersion = 15
+    targetSdkVersion = 24
     compileSdkVersion = 25
     buildToolsVersion = '24.0.3'
 
@@ -43,7 +43,7 @@ ext {
     retrofitVersion = '2.1.0'
     okhttpVersion = '3.5.0'
     okhttpInterceptorVersion = '3.5.0'
-    rxjavaVersion = '1.2.3'
+    rxjavaVersion = '1.2.4'
     rxandroidVersion = '1.2.1'
     picassoVersion = '2.5.2'
     leakCanaryVersion = '1.5'

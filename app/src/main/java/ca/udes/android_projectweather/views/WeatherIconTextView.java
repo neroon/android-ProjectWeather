@@ -29,21 +29,44 @@ import ca.udes.android_projectweather.utils.FontHelper;
  */
 public class WeatherIconTextView extends TextView {
 
+    /**
+     * WeatherIconTextView
+     *
+     * @param context
+     */
     public WeatherIconTextView(Context context){
         super(context, null);
         FontHelper.setWeatherTypeface(context, this);
     }
 
+    /**
+     * WeatherIconTextView
+     *
+     * @param context
+     * @param attrs
+     */
     public WeatherIconTextView(Context context, AttributeSet attrs){
         super(context, attrs);
         FontHelper.setWeatherTypeface(context, this);
     }
 
+    /**
+     * WeatherIconTextView
+     *
+     * @param context
+     * @param attrs
+     * @param defStyle
+     */
     public WeatherIconTextView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         FontHelper.setWeatherTypeface(context, this);
     }
 
+    /**
+     * onDraw
+     *
+     * @param canvas
+     */
     protected void onDraw (Canvas canvas) {
         super.onDraw(canvas);
     }

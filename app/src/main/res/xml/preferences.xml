@@ -53,7 +53,17 @@
             android:entries="@array/pref_entries_unit_names"
             android:entryValues="@array/pref_entryvalues_unit_values"
             android:key="@string/pref_key_unit"
-            android:title="@string/pref_title_temperature"/>
+            android:title="@string/pref_title_unites"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_category_notification">
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:disableDependentsState="true"
+            android:key="@string/pref_key_notification_toggle"
+            android:title="@string/pref_title_notification_toggle"
+            />
     </PreferenceCategory>
 
 </PreferenceScreen>

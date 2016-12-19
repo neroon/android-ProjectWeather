@@ -42,6 +42,8 @@ android {
 
 
         vectorDrawables.useSupportLibrary = true
+
+        resValue "string", "google_maps_key", (project.findProperty("GOOGLE_MAPS_API_KEY") ?: "")
     }
 
     signingConfigs {
@@ -99,7 +101,7 @@ android {
 
     //Remove mockRelease as it's not needed.
     android.variantFilter { variant ->
-        if(variant.buildType.name.equals('release')
+        if (variant.buildType.name.equals('release')
                 && variant.getFlavors().get(0).name.equals('mock')) {
             variant.setIgnore(true);
         }
@@ -126,14 +128,17 @@ dependencies {
     compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
     compile "com.android.support:percent:$rootProject.supportLibraryVersion"
     compile "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
-    compile "com.android.support:support-vector-drawable:$rootProject.supportLibraryVersion" // VectorDrawableCompat
-    compile "com.android.support:animated-vector-drawable:$rootProject.supportLibraryVersion" // AnimatedVectorDrawableCompat
+    compile "com.android.support:support-vector-drawable:$rootProject.supportLibraryVersion"
+    // VectorDrawableCompat
+    compile "com.android.support:animated-vector-drawable:$rootProject.supportLibraryVersion"
+    // AnimatedVectorDrawableCompat
     compile "com.android.support:transition:$rootProject.supportLibraryVersion"
     compile "com.android.support.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
 
     compile "com.google.guava:guava:$rootProject.guavaVersion"
 
     // Google Play services
+    compile "com.google.android.gms:play-services:$rootProject.googlePlayServicesVersion"
     compile "com.google.android.gms:play-services-location:$rootProject.googlePlayServicesVersion"
     compile "com.google.android.gms:play-services-maps:$rootProject.googlePlayServicesVersion"
     compile "com.google.android.gms:play-services-places:$rootProject.googlePlayServicesVersion"
@@ -172,8 +177,6 @@ dependencies {
     // Dependencies for Android unit tests
     androidTestCompile "junit:junit:$rootProject.ext.junitVersion"
     androidTestCompile "org.mockito:mockito-core:$rootProject.ext.mockitoVersion"
-    androidTestCompile "com.google.dexmaker:dexmaker:1.2"
-    androidTestCompile "com.google.dexmaker:dexmaker-mockito:1.2"
 
     // Espresso UI Testing
     androidTestCompile "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
@@ -199,4 +202,8 @@ dependencies {
     androidTestCompile "com.squareup.picasso:picasso:$rootProject.picassoVersion"
     androidTestCompile "io.reactivex:rxjava:$rootProject.rxjavaVersion"
     androidTestCompile "io.reactivex:rxandroid:$rootProject.rxandroidVersion"
+    compile 'com.google.android.gms:play-services:10.0.1'
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    androidTestCompile 'com.google.dexmaker:dexmaker:1.2'
+    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
 }

@@ -46,7 +46,7 @@ public class SettingsActivity extends AppCompatActivity {
         if (ab != null) {
             ab.setDisplayShowHomeEnabled(true);
             ab.setDisplayHomeAsUpEnabled(true);
-            ab.setTitle(getString(R.string.action_settings));
+            ab.setTitle(getString(R.string.menu_settings));
         }
     }
 

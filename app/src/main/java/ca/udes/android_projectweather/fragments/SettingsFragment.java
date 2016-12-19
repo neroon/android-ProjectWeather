@@ -94,9 +94,18 @@ public class SettingsFragment extends PreferenceFragment {
      *
      */
     private void setTempSummary() {
-        String unit = prefs.getUnit() != null ? "\u00B0"
-                + prefs.getUnit().toUpperCase() : "";
-        prefTemp.setSummary(Constants.PREF_UNIT_SUMMARY + " " + unit);
+        String unit;
+
+        if (prefs.getUnit() != null) {
+            if(prefs.getUnit().equalsIgnoreCase("c")) {
+                unit = " Métrique \u00B0" + prefs.getUnit().toUpperCase() + ", km/h";
+            } else {
+                unit = "Impérial \u00B0" + prefs.getUnit().toUpperCase() + ", mph";
+            }
+        } else {
+            unit = "";
+        }
+        prefTemp.setSummary(unit);
     }
 
     /**

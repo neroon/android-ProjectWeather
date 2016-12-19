@@ -23,9 +23,10 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.support.v7.widget.RecyclerView;
 
-
 import ca.udes.android_projectweather.R;
+
 import ca.udes.android_projectweather.utils.Constants;
+import ca.udes.android_projectweather.utils.FontHelper;
 import ca.udes.android_projectweather.utils.WeatherUtil;
 import ca.udes.android_projectweather.views.WeatherDetailLayout;
 import ca.udes.android_projectweather.models.weathermodel.WeatherData;
@@ -91,6 +92,14 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
                 holder.tvTemp.setText(WeatherUtil.getTempString(mWeatherData.getMain().getMainTemp(),
                         prefs.isUnitMetric()));
             }
+            if (mWeatherData.getMain() != null) {
+                holder.tempHigh.setText("MAX: " + WeatherUtil.getTempString(mWeatherData.getMain().getMainTempMax(),
+                        prefs.isUnitMetric()));
+            }
+            if (mWeatherData.getMain() != null) {
+                holder.tempLow.setText("MIN: " + WeatherUtil.getTempString(mWeatherData.getMain().getMainTempMin(),
+                        prefs.isUnitMetric()));
+            }
         }
         else if (viewHolder.getItemViewType() == DETAILVIEW) {
             DetailViewHolder holder = (DetailViewHolder) viewHolder;
@@ -103,34 +112,58 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
 
         holder.llDetails.removeAllViewsInLayout();
 
+        if (mWeatherData.getMain().getMainTemp() != null) {
+            WeatherDetailLayout temperatudeDetail = createDetailLayout(WeatherUtil.getTemperatureIcon(),
+                    "Température ressentie", WeatherUtil.getTempString(mWeatherData.getMain().getMainTemp(),
+                            prefs.isUnitMetric()));
+            holder.llDetails.addView(temperatudeDetail);
+        }
+
+        if (mWeatherData.getRain().getRainAll() != null) {
+            WeatherDetailLayout rainDetail = createDetailLayout(WeatherUtil.getRainIcon(),
+                    "Probabilité de pluie/neige", String.valueOf(mWeatherData.getRain().getRainAll())
+                            + Constants.DETAIL_LABEL_HUMIDITY);
+            holder.llDetails.addView(rainDetail);
+        }
+
+        if (mWeatherData.getWind().getWindSpeed() != null && mWeatherData.getWind().getWindDeg() != null) {
+            WeatherDetailLayout windDetail = createDetailLayout(WeatherUtil.getWindIcon(),
+                    "Vent", String.valueOf((mWeatherData.getWind().getWindSpeed())
+                            + prefs.getWindSpeedUnit() + " " + mWeatherData.getWind().getWindDeg()
+                            + Constants.DETAIL_LABEL_DEGREE));
+            holder.llDetails.addView(windDetail);
+        }
+
         if (mWeatherData.getMain().getMainHumidity() != null) {
             WeatherDetailLayout humidityDetail = createDetailLayout(WeatherUtil.getHumidityIcon(),
-                    "Humidity", String.valueOf(mWeatherData.getMain().getMainHumidity()) + Constants.DETAIL_LABEL_HUMIDITY);
+                    "Humidité", String.valueOf(mWeatherData.getMain().getMainHumidity())
+                            + Constants.DETAIL_LABEL_HUMIDITY);
             holder.llDetails.addView(humidityDetail);
+        }
+
+        if (mWeatherData.getClouds().getCloudsAll() != null) {
+            WeatherDetailLayout cloudsDetail = createDetailLayout(WeatherUtil.getPressureIcon(),
+                    "Visibilité", String.valueOf(mWeatherData.getClouds().getCloudsAll())
+                            + Constants.DETAIL_LABEL_VISILIBITY);
+            holder.llDetails.addView(cloudsDetail);
         }
 
         if (mWeatherData.getMain().getMainPressure() != null) {
             WeatherDetailLayout pressureDetail = createDetailLayout(WeatherUtil.getPressureIcon(),
-                    "Pressure", String.valueOf(mWeatherData.getMain().getMainPressure())
+                    "Pression", String.valueOf(mWeatherData.getMain().getMainPressure())
                             + Constants.DETAIL_LABEL_PRESSURE);
             holder.llDetails.addView(pressureDetail);
         }
 
-        if (mWeatherData.getWind().getWindSpeed() != null) {
-            WeatherDetailLayout windDetail = createDetailLayout(WeatherUtil.getWindIcon(),
-                    "Wind", String.valueOf(mWeatherData.getWind().getWindSpeed()) + prefs.getWindSpeedUnit());
-            holder.llDetails.addView(windDetail);
-        }
-
         if (mWeatherData.getSys().getSysSunrise() != null) {
             WeatherDetailLayout sunriseDetail = createDetailLayout(WeatherUtil.getSunriseIcon(),
-                    "Sunrise", WeatherUtil.getTime(mWeatherData.getSys().getSysSunrise()));
+                    "Lever du soleil", WeatherUtil.getTime(mWeatherData.getSys().getSysSunrise()));
             holder.llDetails.addView(sunriseDetail);
         }
 
         if (mWeatherData.getSys().getSysSunset() != null) {
             WeatherDetailLayout sunsetDetail = createDetailLayout(WeatherUtil.getSunsetIcon(),
-                    "Sunset", WeatherUtil.getTime(mWeatherData.getSys().getSysSunset()));
+                    "Couché du soleil", WeatherUtil.getTime(mWeatherData.getSys().getSysSunset()));
             holder.llDetails.addView(sunsetDetail);
         }
     }
@@ -166,6 +199,8 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
         private TextView tvCity;
         private TextView tvCondition;
         private TextView tvTemp;
+        private TextView tempHigh;
+        private TextView tempLow;
 
         public WeatherViewHolder(View v) {
             super(v);
@@ -173,6 +208,8 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
             tvCity = (TextView) v.findViewById(R.id.tv_city);
             tvCondition = (TextView) v.findViewById(R.id.tv_condition);
             tvTemp = (TextView) v.findViewById(R.id.tv_temp);
+            tempHigh = (TextView) v.findViewById(R.id.tempHigh);
+            tempLow = (TextView) v.findViewById(R.id.tempLow);
         }
     }
 

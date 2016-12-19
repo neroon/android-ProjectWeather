@@ -46,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
     //Adresse IP + PORT
     //autre modem :192.168.43.200:3000   live version:http://54.191.162.219:3000
     private static String IPMEAN = "http://192.168.0.101:3000";
+    //synchronise
     private final Object lock = new Object();
 
 
@@ -101,9 +102,10 @@ public class LoginActivity extends AppCompatActivity {
                 IPMEAN = myNewIp();
                 String name = mNameView.getText().toString();
                 String fav = mFavView.getText().toString();
-
-                JsonPostRequest jsonPostRequest = new JsonPostRequest(name,fav);
-                jsonPostRequest.execute();
+                synchronized (lock) {
+                    JsonPostRequest jsonPostRequest = new JsonPostRequest(name, fav);
+                    jsonPostRequest.execute();
+                }
             }
         });
 
@@ -119,9 +121,10 @@ public class LoginActivity extends AppCompatActivity {
 
                 IPMEAN = myNewIp();
                 String myId = mIdConnectView.getText().toString();
-
-                JsonConnectRequest jsonConnectRequest = new JsonConnectRequest(myId);
-                jsonConnectRequest.execute();
+                synchronized (lock) {
+                    JsonConnectRequest jsonConnectRequest = new JsonConnectRequest(myId);
+                    jsonConnectRequest.execute();
+                }
             }
         });
 
@@ -141,9 +144,10 @@ public class LoginActivity extends AppCompatActivity {
                 String myId = getIdSharedPreference(); //Provient de sharedPreference
                 String name = mNameEditView.getText().toString();
                 String fav = mFavEditView.getText().toString();
-
-                JsonEditRequest jsonEditRequest = new JsonEditRequest(myId,name,fav);
-                jsonEditRequest.execute();
+                synchronized (lock) {
+                    JsonEditRequest jsonEditRequest = new JsonEditRequest(myId, name, fav);
+                    jsonEditRequest.execute();
+                }
             }
         });
 
@@ -560,17 +564,19 @@ public class LoginActivity extends AppCompatActivity {
         return save_fav;
     }
 
-    public String myNewIp(){
-        String newIp = mEditIp.getText().toString();
-        if(newIp.equals("")){
-            newIp = "http://54.191.162.219:3000"; //live
-        }else if(newIp.equals("1")){
-            newIp = "http://192.168.43.200:3000"; //modem xperia z2
-        }else if(newIp.equals("2")){
-            newIp = "http://192.168.0.101:3000"; //local
+    public String myNewIp() {
+        synchronized (lock) {
+            String newIp = mEditIp.getText().toString();
+            if (newIp.equals("")) {
+                newIp = "http://54.191.162.219:3000"; //live
+            } else if (newIp.equals("1")) {
+                newIp = "http://192.168.43.200:3000"; //modem xperia z2
+            } else if (newIp.equals("2")) {
+                newIp = "http://192.168.0.101:3000"; //local
+            }
+            Toast.makeText(getApplicationContext(), "IP " + newIp, Toast.LENGTH_SHORT).show();
+            return newIp;
         }
-        Toast.makeText(getApplicationContext(), "IP "+newIp, Toast.LENGTH_SHORT).show();
-        return newIp;
     }
 
 }

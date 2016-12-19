@@ -43,6 +43,20 @@
                 android:layout_marginTop="7dp"
                  />
 
+            <TextView
+                android:text="Adresse Ip (si vide IP sur serveur aws)"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:text="http://54.191.162.219:3000"
+                android:ems="10"
+                android:id="@+id/editText" />
+
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

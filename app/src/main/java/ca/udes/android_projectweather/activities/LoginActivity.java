@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,12 +44,14 @@ public class LoginActivity extends AppCompatActivity {
     private static final String LOG_TAG = "test";
 
     //Adresse IP + PORT
-    private static final String IPMEAN = "http://192.168.0.101:3000";
+    //autre modem :192.168.43.200:3000   live version:http://54.191.162.219:3000
+    private static String IPMEAN = "http://192.168.0.101:3000";
 
 
 
 
     //--- UI MEAN --
+    public EditText mEditIp;
     //Inscription
     private TextView mTextViewInfo;
     private AutoCompleteTextView mNameView;
@@ -71,6 +74,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //IP
+        mEditIp  = (EditText)findViewById(R.id.editText);
+
+
+        //REFRESH sharedPref
+        String firstIdLocal = getIdSharedPreference();
+        JsonConnectRequest jsonConnectRequest = new JsonConnectRequest(firstIdLocal);
+        jsonConnectRequest.execute();
 
 
 
@@ -85,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                 Log.i(LOG_TAG, "Bouton inscription");
                 Toast.makeText(getApplicationContext(), "Inscription", Toast.LENGTH_SHORT).show();
 
+                IPMEAN = myNewIp();
                 String name = mNameView.getText().toString();
                 String fav = mFavView.getText().toString();
 
@@ -544,6 +556,18 @@ public class LoginActivity extends AppCompatActivity {
         return save_fav;
     }
 
+    public String myNewIp(){
+        String newIp = mEditIp.getText().toString();
+        if(newIp.equals("")){
+            newIp = "http://54.191.162.219:3000"; //live
+        }else if(newIp.equals("1")){
+            newIp = "http://192.168.43.200:3000"; //modem xperia z2
+        }else if(newIp.equals("2")){
+            newIp = "http://192.168.0.101:3000"; //local
+        }
+        Toast.makeText(getApplicationContext(), "IP "+newIp, Toast.LENGTH_SHORT).show();
+        return newIp;
+    }
 
 }
 

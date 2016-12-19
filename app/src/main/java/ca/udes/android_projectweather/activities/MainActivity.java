@@ -343,6 +343,8 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
         } else if (id == R.id.menu_connection) {
             Snackbar.make(this.findViewById(R.id.menu_favorite), "Connection clicked", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

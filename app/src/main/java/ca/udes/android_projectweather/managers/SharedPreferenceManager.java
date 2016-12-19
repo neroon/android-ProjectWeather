@@ -37,6 +37,7 @@ public class SharedPreferenceManager {
 
     private SharedPreferences prefs;
     private int INDEX = 0;
+    private  int INDEXREFRESH =0;
 
     /**
      * SharedPreferenceManager
@@ -192,36 +193,48 @@ public class SharedPreferenceManager {
      * @return
      */
     public String getSelectedCity(){
-        return getCity() + "," + WeatherUtil.getCountry(getCountry());
+        //return getCity() + "," + WeatherUtil.getCountry(getCountry()); //ancien
+        return getCity();
     }
 
     /**
      * getSelectedListFav
      * Principe on affichera toujours en 1er la météo qui est sauvegardé a partir des parametres
      * Ensuite on met a la suite les villes favoris
-     * index permet de switcher entre les villes
+     * INDEX permet de switcher entre les villes
+     * refresh=0
+     * fav=1
      *
      * @return
      */
-    public String getSelectedCityFav(){
+    public String getSelectedCityFav(int refreshOrFav){
         String finalCity = "";
         String listCity =  getCity() + "," + getCityListFav(); //ex:villeDeParamete,ville fav1, ville fav2
         Log.e("My App", "################################"+listCity);
 
         String[] parts = listCity.split(",");
         int sizeTab = parts.length;
-        //on repart a 0
-        Log.e("My App", "INDEX  ################################ "+finalCity +"   INDEX "+INDEX);
-        if(INDEX>=sizeTab){
-            INDEX=0;
-            finalCity = parts[INDEX];
-            Log.e("My App", "IF  ################################ "+finalCity +"   INDEX "+INDEX);
-            INDEX=INDEX+1;
+
+        if(refreshOrFav==0){
+                finalCity = parts[INDEXREFRESH];
+                Log.e("My App", "refreshOrFav  ################################ "+finalCity +"   INDEXREFRESH "+INDEXREFRESH);
         }else{
-            finalCity = parts[INDEX];
-            Log.e("My App", "ELSE  ################################ "+finalCity +"   INDEX "+INDEX);
-            INDEX=INDEX+1;
+            //on repart a 0
+            Log.e("My App", "INDEX  ################################ "+finalCity +"   INDEX "+INDEX);
+            if(INDEX>=sizeTab){
+                INDEX=0;
+                finalCity = parts[INDEX];
+                Log.e("My App", "IF  ################################ "+finalCity +"   INDEX "+INDEX);
+                INDEXREFRESH=INDEX;
+                INDEX=INDEX+1;
+            }else{
+                finalCity = parts[INDEX];
+                Log.e("My App", "ELSE  ################################ "+finalCity +"   INDEX "+INDEX);
+                INDEXREFRESH=INDEX;
+                INDEX=INDEX+1;
+            }
         }
+
 
         return finalCity;
     }

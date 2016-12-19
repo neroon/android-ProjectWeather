@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
             }
         }
         else {
-            getCombinedDataByCity();
+            getCombinedDataByCity(0);
         }
     }
 
@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
                     break;
                 case Activity.RESULT_CANCELED:
                     Log.i(TAG, "User chose not to make required location settings changes.");
-                    getCombinedDataByCity();
+                    getCombinedDataByCity(0);
                     prefs.setLocationToggle(false);
                     break;
             }
@@ -202,12 +202,24 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
                 }));
     }
 
-    private void getCombinedDataByCity() {
+    /**
+     * refresh mode = 0
+     * fav mode = 1
+     * @param refreshOrFav
+     */
+    private void getCombinedDataByCity(int refreshOrFav) {
         showProgressBar();
         if (prefs != null) {
             //On récupere la ville dans sharedPreference
             //String selectedCity = prefs.getSelectedCity(); //ancien
-            String selectedCity = prefs.getSelectedCityFav(); ////ex:villeDeParamete,ville fav1, ville fav2
+            String selectedCity = "";
+            if(refreshOrFav==0){
+                //mode refresh
+                selectedCity= prefs.getSelectedCityFav(0);////ex:villeDeParamete
+            }else{
+                //mode fav
+                selectedCity= prefs.getSelectedCityFav(1); ////ex:villeDeParamete,ville fav1, ville fav2
+            }
             Observable<CombinedData> combined2 = Observable.zip(getWeatherByCity(selectedCity),
                     getForecastByCity(selectedCity), new Func2<WeatherData, ForecastDailyData, CombinedData>() {
                         @Override
@@ -317,11 +329,16 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
         return true;
     }
 
-    private void updateCombinedData(){
+    /**
+     * refresh mode = 0
+     * fav mode = 1
+     * @param refreshOrFav
+     */
+    private void updateCombinedData(int refreshOrFav){
         if (mLocationProvider != null) {
             getCombinedDataByLocation();
         } else {
-            getCombinedDataByCity();
+            getCombinedDataByCity(refreshOrFav);
         }
     }
     @Override
@@ -332,14 +349,14 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
         if (id == R.id.menu_refresh) {
             Snackbar.make(this.findViewById(R.id.menu_refresh), "Updating...", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
-            updateCombinedData();
+            updateCombinedData(0);
         } else if (id == R.id.menu_settings) {
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivityForResult(intent, SETTINGS_ACTION);
         } else if (id == R.id.menu_favorite) {
             Snackbar.make(this.findViewById(R.id.menu_favorite), "Favoris suivants", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
-            updateCombinedData();
+            updateCombinedData(1);
 
 
 

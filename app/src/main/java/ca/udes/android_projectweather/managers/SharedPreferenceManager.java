@@ -18,16 +18,8 @@ package ca.udes.android_projectweather.managers;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.Preference;
 import android.preference.PreferenceManager;
-import android.util.Log;
-
-import java.util.Map;
-import java.util.Set;
-
-import ca.udes.android_projectweather.activities.LoginActivity;
 import ca.udes.android_projectweather.utils.Constants;
-import ca.udes.android_projectweather.utils.WeatherUtil;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -38,11 +30,6 @@ import static android.content.Context.MODE_PRIVATE;
  */
 @SuppressWarnings("unused")
 public class SharedPreferenceManager {
-
-    private static final String TAG = SharedPreferenceManager.class.getSimpleName();
-
-
-
 
     private SharedPreferences prefs;
     private int INDEX = 0;
@@ -84,6 +71,33 @@ public class SharedPreferenceManager {
      */
     public void unregisterChangeListener(SharedPreferences.OnSharedPreferenceChangeListener listener){
         prefs.unregisterOnSharedPreferenceChangeListener(listener);
+    }
+
+    /**
+     * getSharedPrefFav
+     *
+     * @param context
+     * @return
+     */
+    public static String getSharedPrefFav(Context context){
+        SharedPreferences prefs;
+        prefs = context.getSharedPreferences("LOCAL", MODE_PRIVATE);
+        String save_id = prefs.getString("save_fav", null);
+
+        return save_id;
+    }
+
+    /**
+     * getSharedPrefName
+     *
+     * @param context
+     * @return
+     */
+    public static String getSharedPrefName(Context context){
+        SharedPreferences settings;
+        settings = context.getSharedPreferences("LOCAL", MODE_PRIVATE); //1
+        String save_id = settings.getString("save_name", null);
+        return save_id;
     }
 
     /**
@@ -137,21 +151,7 @@ public class SharedPreferenceManager {
      * @return sherbrooke par defaut si il n'y a pas de PREF_CITY
      */
     public String getCityListFav() {
-
-        /*SharedPreferences settings;
-        settings = getApplicationContext().getSharedPreferences(Constants.PREF_CITY_FAV, MODE_PRIVATE); //1*/
-
-        //SharedPreferences settings = mycontext.getSharedPreferences("LOCAL", MODE_PRIVATE); //1*/
-
-        //Preference prefCity = prefs.;
-        //SharedGenerique lol = new SharedGenerique();
-        //String listFav= lol.getFav();
-
-
-
-
         String listFav = prefs.getString("save_fav", "");
-
         listFav = ","+listFav;
 
         return listFav;
@@ -231,40 +231,31 @@ public class SharedPreferenceManager {
      *
      * @return
      */
-    public String getSelectedCityFav(int refreshOrFav, String ListFav){
+    public String getSelectedCityFav(int refreshOrFav, String ListFav) {
         String finalCity = "";
         if(ListFav==null){
             ListFav="";
         }else{
             ListFav=","+ListFav;
         }
-        String listCity =  getCity() + ListFav; //ex:villeDeParamete,ville fav1, ville fav2
-        Log.e("My App", "################################ "+listCity);
-
+        String listCity =  getCity() + ListFav;
         String[] parts = listCity.split(",");
         int sizeTab = parts.length;
 
         if(refreshOrFav==0){
                 finalCity = parts[INDEXREFRESH];
-                Log.e("My App", "refreshOrFav  ################################ "+finalCity +"   INDEXREFRESH "+INDEXREFRESH);
         }else{
-            //on repart a 0
-            Log.e("My App", "INDEX  ################################ "+finalCity +"   INDEX "+INDEX);
             if(INDEX>=sizeTab){
                 INDEX=0;
                 finalCity = parts[INDEX];
-                Log.e("My App", "IF  ################################ "+finalCity +"   INDEX "+INDEX);
                 INDEXREFRESH=INDEX;
                 INDEX=INDEX+1;
             }else{
                 finalCity = parts[INDEX];
-                Log.e("My App", "ELSE  ################################ "+finalCity +"   INDEX "+INDEX);
                 INDEXREFRESH=INDEX;
                 INDEX=INDEX+1;
             }
         }
-
-
         return finalCity;
     }
 
@@ -286,6 +277,4 @@ public class SharedPreferenceManager {
     public String getTempUnit(){
         return isUnitMetric() ? Constants.API_METRIC : Constants.API_IMPERIAL;
     }
-
-
 }

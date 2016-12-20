@@ -1,4 +1,4 @@
-package ca.udes.android_projectweather.activities;
+package ca.udes.android_projectweather.views.widgets;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -13,9 +13,7 @@ import android.widget.Toast;
 import java.util.Random;
 
 import ca.udes.android_projectweather.R;
-
-import static android.content.Context.MODE_PRIVATE;
-
+import ca.udes.android_projectweather.managers.SharedPreferenceManager;
 
 /**
  * Implementation of App Widget show fav
@@ -91,8 +89,8 @@ public class FavAppWidget extends AppWidgetProvider {
 
             // If the Red TextView clicked, then do that
             //remoteViews.setTextViewText(R.id.appwidget_text, "" + randomNumber);
-            String name = getSharedPrefName(context);
-            String fav = getSharedPrefFav(context);
+            String name = SharedPreferenceManager.getSharedPrefName(context);
+            String fav = SharedPreferenceManager.getSharedPrefFav(context);
             String msg = "Vos favoris sont : "+fav;
             if(fav==null){
                 msg="Veillez vous connecter";
@@ -117,21 +115,6 @@ public class FavAppWidget extends AppWidgetProvider {
     @Override
     public void onDisabled(Context context) {
         // Enter relevant functionality for when the last widget is disabled
-    }
-
-
-    public static String getSharedPrefName(Context context){
-        SharedPreferences settings;
-        settings = context.getSharedPreferences("LOCAL", MODE_PRIVATE); //1
-        String save_id = settings.getString("save_name", null);
-        return save_id;
-    }
-
-    public static String getSharedPrefFav(Context context){
-        SharedPreferences settings;
-        settings = context.getSharedPreferences("LOCAL", MODE_PRIVATE); //1
-        String save_id = settings.getString("save_fav", null);
-        return save_id;
     }
 }
 

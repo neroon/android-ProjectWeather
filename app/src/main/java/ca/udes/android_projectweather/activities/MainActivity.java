@@ -34,7 +34,6 @@ import android.support.v4.view.ViewPager;
 import android.support.design.widget.TabLayout;
 import android.widget.TextView;
 
-import ca.udes.android_projectweather.views.adapters.WeatherAdapter;
 import ca.udes.android_projectweather.views.notifications.StatNotification;
 import rx.Observable;
 import rx.Subscriber;
@@ -120,12 +119,6 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        mAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(mAdapter);
-        viewPager.setVisibility(View.INVISIBLE);
-    }
-
-    private void setupViewPagerInvisible(ViewPager viewPager) {
         mAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(mAdapter);
         viewPager.setVisibility(View.INVISIBLE);
@@ -233,15 +226,13 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
     private void getCombinedDataByCity(int refreshOrFav) {
         showProgressBar();
         if (prefs != null) {
-            //On récupere la ville dans sharedPreference
-            //String selectedCity = prefs.getSelectedCity(); //ancien
             String selectedCity = "";
             if(refreshOrFav==0){
                 //mode refresh
                 selectedCity= prefs.getSelectedCityFav(0,"");////ex:villeDeParamete
             }else{
                 //mode fav
-                selectedCity= prefs.getSelectedCityFav(1,getSharedPrefFav(getApplicationContext())); ////ex:villeDeParamete,ville fav1, ville fav2
+                selectedCity= prefs.getSelectedCityFav(1,SharedPreferenceManager.getSharedPrefFav(getApplicationContext()));
             }
             Observable<CombinedData> combined2 = Observable.zip(getWeatherByCity(selectedCity),
                     getForecastByCity(selectedCity), new Func2<WeatherData, ForecastDailyData, CombinedData>() {
@@ -381,13 +372,7 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
         } else if (id == R.id.menu_favorite) {
             Snackbar.make(this.findViewById(R.id.menu_favorite), "Favoris suivants", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
-            //String test = getSharedPrefFav(getApplicationContext());
-            //Log.e("My App", "--------------------  "+test);
-
             updateCombinedData(1);
-
-
-
         } else if (id == R.id.menu_about) {
             Intent intent = new Intent(this, AboutActivity.class);
             startActivity(intent);
@@ -398,13 +383,5 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    //pour les favoris
-    public static String getSharedPrefFav(Context context){
-        SharedPreferences settings;
-        settings = context.getSharedPreferences("LOCAL", MODE_PRIVATE); //1
-        String save_id = settings.getString("save_fav", null);
-        return save_id;
     }
 }

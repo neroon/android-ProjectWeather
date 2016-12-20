@@ -29,10 +29,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-
 import ca.udes.android_projectweather.R;
-
-
 
 /**
  * A login screen that offers login via email/password.

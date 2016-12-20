@@ -104,6 +104,8 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
+    <string name="appwidget_text">Liste des favoris</string>
+    <string name="add_widget">Add widget</string>
 
 
 </resources>

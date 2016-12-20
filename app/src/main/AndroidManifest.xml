@@ -48,7 +48,7 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-        <!--              The API key for Google Maps-based APIs. -->
+        <!-- The API key for Google Maps-based APIs. -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -67,7 +67,7 @@
         <!-- MainActivity -->
         <activity
             android:name=".activities.MainActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
 
         <!-- Setting activity -->
         <activity android:name=".activities.SettingsActivity" />
@@ -106,7 +106,17 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login" />
+
+        <receiver android:name=".activities.FavAppWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/fav_app_widget_info" />
+        </receiver>
     </application>
 
 </manifest>

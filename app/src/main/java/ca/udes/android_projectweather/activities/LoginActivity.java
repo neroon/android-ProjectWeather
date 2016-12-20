@@ -79,9 +79,9 @@ public class LoginActivity extends AppCompatActivity {
 
 
         //REFRESH sharedPref
-        String firstIdLocal = getIdSharedPreference();
+        /*String firstIdLocal = getIdSharedPreference();
         JsonConnectRequest jsonConnectRequest = new JsonConnectRequest(firstIdLocal);
-        jsonConnectRequest.execute();
+        jsonConnectRequest.execute();*/
 
 
 

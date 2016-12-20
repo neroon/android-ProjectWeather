@@ -229,10 +229,10 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
             String selectedCity = "";
             if(refreshOrFav==0){
                 //mode refresh
-                selectedCity= prefs.getSelectedCityFav(0,"");////ex:villeDeParamete
+                selectedCity = prefs.getSelectedCityFav(0,SharedPreferenceManager.getSharedPrefFav(getApplicationContext()));////ex:villeDeParamete
             }else{
                 //mode fav
-                selectedCity= prefs.getSelectedCityFav(1,SharedPreferenceManager.getSharedPrefFav(getApplicationContext()));
+                selectedCity = prefs.getSelectedCityFav(1,SharedPreferenceManager.getSharedPrefFav(getApplicationContext()));
             }
             Observable<CombinedData> combined2 = Observable.zip(getWeatherByCity(selectedCity),
                     getForecastByCity(selectedCity), new Func2<WeatherData, ForecastDailyData, CombinedData>() {

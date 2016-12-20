@@ -243,11 +243,15 @@ public class SharedPreferenceManager {
         int sizeTab = parts.length;
 
         if(refreshOrFav==0){
+            if(INDEX==0){
+                finalCity = parts[INDEXREFRESH]+","+getCountry();
+            }else{
                 finalCity = parts[INDEXREFRESH];
+            }
         }else{
             if(INDEX>=sizeTab){
                 INDEX=0;
-                finalCity = parts[INDEX];
+                finalCity = parts[INDEX]+","+getCountry();;
                 INDEXREFRESH=INDEX;
                 INDEX=INDEX+1;
             }else{

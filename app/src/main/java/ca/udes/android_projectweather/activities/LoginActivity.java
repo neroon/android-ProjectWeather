@@ -1,12 +1,17 @@
 package ca.udes.android_projectweather.activities;
 
 import android.content.SharedPreferences;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.AsyncTask;
 
 
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AutoCompleteTextView;
@@ -48,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-
+    Toolbar toolbar;
 
     //--- UI MEAN --
     public EditText mEditIp;
@@ -73,6 +78,16 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        final ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setDisplayShowHomeEnabled(true);
+            ab.setDisplayHomeAsUpEnabled(true);
+            ab.setTitle(getString(R.string.menu_connection));
+        }
 
         //IP
         mEditIp  = (EditText)findViewById(R.id.editText);
@@ -584,5 +599,12 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
 

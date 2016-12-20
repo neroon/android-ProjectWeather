@@ -204,6 +204,7 @@ dependencies {
     androidTestCompile "io.reactivex:rxandroid:$rootProject.rxandroidVersion"
     compile 'com.google.android.gms:play-services:10.0.1'
     compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:support-v4:25.1.0'
     androidTestCompile 'com.google.dexmaker:dexmaker:1.2'
     androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
 }

@@ -52,6 +52,20 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mTextView"
+            android:text="Pas de connection internet"
+            android:textStyle="normal"
+            android:textSize="18sp"
+            android:textColor="@color/md_black_1000"
+            android:layout_columnSpan="1"
+            android:layout_rowSpan="1"
+            android:paddingTop="10dp"
+            android:visibility="gone"
+            android:layout_gravity="center" />
+
     <include layout="@layout/progress_bar"/>
 
     <android.support.design.widget.FloatingActionButton

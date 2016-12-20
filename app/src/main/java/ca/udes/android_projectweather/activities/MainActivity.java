@@ -30,9 +30,10 @@ import android.widget.ProgressBar;
 import android.location.Location;
 import android.support.v4.view.ViewPager;
 import android.support.design.widget.TabLayout;
+import android.widget.TextView;
 
-import java.io.IOException;
-
+import ca.udes.android_projectweather.views.adapters.WeatherAdapter;
+import ca.udes.android_projectweather.views.notifications.StatNotification;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -51,7 +52,6 @@ import ca.udes.android_projectweather.fragments.ForecastDailyFragment;
 import ca.udes.android_projectweather.fragments.SettingsFragment;
 import ca.udes.android_projectweather.fragments.WeatherFragment;
 import ca.udes.android_projectweather.managers.SharedPreferenceManager;
-
 
 /**
  * PermissionsActivity
@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
     private ProgressBar mProgressBar;
     private String mTempUnit = "";
     private CompositeSubscription mCompositeSubscription;
+    private TextView myTextView;
 
     @Override
     public void setContentView(int layoutResID) {
@@ -88,6 +89,8 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
         setContentView(R.layout.activity_main);
         mCompositeSubscription = new CompositeSubscription();
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+        myTextView = (TextView) findViewById(R.id.mTextView);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +123,12 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
         viewPager.setVisibility(View.INVISIBLE);
     }
 
+    private void setupViewPagerInvisible(ViewPager viewPager) {
+        mAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(mAdapter);
+        viewPager.setVisibility(View.INVISIBLE);
+    }
+
     private void initPrefs() {
         prefs = SharedPreferenceManager.from(this);
         mTempUnit = prefs.getTempUnit();
@@ -139,6 +148,15 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
     }
 
     private void getNotificationPrefs() {
+        String cityName = prefs.getCity();
+        String cityCountry = prefs.getCountry();
+        String cityTemp = "-10°"+ prefs.getUnit();
+
+        if(prefs.getNotificationToggle()) {
+            StatNotification.notify(getApplicationContext(),cityName, cityCountry, cityTemp, 0);
+        } else {
+
+        }
     }
 
     @Override
@@ -186,10 +204,13 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
                 .observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<CombinedData>() {
                     @Override
                     public void onCompleted() {
+                        myTextView.setVisibility(View.GONE);
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        mViewPager.setVisibility(View.INVISIBLE);
+                        myTextView.setVisibility(View.VISIBLE);
                         hideProgressBar();
                     }
 
@@ -220,11 +241,13 @@ public class MainActivity extends AppCompatActivity implements LocationProvider.
                     .subscribe(new Subscriber<CombinedData>() {
                         @Override
                         public void onCompleted() {
-
+                            myTextView.setVisibility(View.GONE);
                         }
 
                         @Override
                         public void onError(Throwable e) {
+                            mViewPager.setVisibility(View.INVISIBLE);
+                            myTextView.setVisibility(View.VISIBLE);
                             hideProgressBar();
                         }
 

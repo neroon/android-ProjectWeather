@@ -35,6 +35,7 @@ import ca.udes.android_projectweather.models.weathermodel.WeatherData;
 public class WeatherFragment extends Fragment {
 
     private WeatherAdapter mWeatherAdapter;
+    String recoverTemp;
 
     /**
      * Constructor.

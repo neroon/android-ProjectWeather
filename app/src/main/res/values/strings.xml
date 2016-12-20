@@ -88,4 +88,5 @@
 
     //About activity
     <string name="title_activity_about">A propos</string>
+
 </resources>

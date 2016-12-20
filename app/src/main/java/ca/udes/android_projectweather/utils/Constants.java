@@ -44,6 +44,8 @@ public final class Constants {
 
     public static final String PREF_LOCATION_TOGGLE = "key_location_toggle";
     public static final String PREF_CITY = "key_city";
+    public static final String PREF_CITY_FAV = "key_city_fav";
+
     public static final String PREF_COUNTRY = "key_country";
     public static final String PREF_UNIT = "key_unit";
     public static final String PREF_UNIT_METRIC = "c";

@@ -91,6 +91,7 @@
 
     <!-- Strings related to login -->
     <string name="prompt_fav">Ville, ville</string>
+    <string name="title_activity_login">Connection</string>
     <string name="prompt_name">Name</string>
     <string name="prompt_id">Id </string>
     <string name="action_sign_in">Sign in or register</string>

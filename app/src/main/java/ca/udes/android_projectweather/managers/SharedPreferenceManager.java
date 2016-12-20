@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import ca.udes.android_projectweather.utils.Constants;
+import ca.udes.android_projectweather.utils.WeatherUtil;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -217,8 +218,7 @@ public class SharedPreferenceManager {
      * @return
      */
     public String getSelectedCity(){
-        //return getCity() + "," + WeatherUtil.getCountry(getCountry()); //ancien
-        return getCity();
+        return getCity() + "," + WeatherUtil.getCountry(getCountry());
     }
 
     /**

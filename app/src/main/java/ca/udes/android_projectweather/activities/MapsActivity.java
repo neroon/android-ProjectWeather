@@ -72,7 +72,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private static final String KEY_CAMERA_POSITION = "camera_position";
     private static final String KEY_LOCATION = "location";
 
-    private boolean mTypeCarte;
+    private boolean mTypeCarte = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,34 +100,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Build the Play services client for use by the Fused Location Provider and the Places API.
         buildGoogleApiClient();
         mGoogleApiClient.connect();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_maps, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        } else if (id == R.id.menu_map) {
-            if (mTypeCarte) {
-                mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-                mTypeCarte = false;
-                Snackbar.make(this.findViewById(R.id.menu_map), "Modification...", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            } else {
-                mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-                mTypeCarte = true;
-                Snackbar.make(this.findViewById(R.id.menu_map), "Modificarion...", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -216,7 +188,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap = map;
 
         // Turn on the My Location layer and the related control on the map.
-        updateLocationUI();
+            updateLocationUI();
         // Add markers for nearby places.
         updateMarkers();
 
@@ -412,5 +384,33 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             mMap.getUiSettings().setMyLocationButtonEnabled(false);
             mCurrentLocation = null;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_maps, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        } else if (id == R.id.menu_map) {
+            if (mTypeCarte) {
+                mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                mTypeCarte = false;
+                Snackbar.make(this.findViewById(R.id.menu_map), "Modification...", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            } else {
+                mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                mTypeCarte = true;
+                Snackbar.make(this.findViewById(R.id.menu_map), "Modification...", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -58,7 +58,7 @@ Android version:
 
 The project uses the Gradle build system. To build the project, use the "gradlew build" or use "Import Project" in Android Studio.
 
-For the other part of the project, server and service, this refer to[Erozbliz/Mean_stack_test](https://github.com/Erozbliz/MEAN_stack_test)
+For the other part of the project, server and service, this refer to [Erozbliz/Mean_stack_test](https://github.com/Erozbliz/MEAN_stack_test)
 
 ## License
 

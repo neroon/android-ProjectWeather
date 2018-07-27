@@ -3,6 +3,8 @@
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Folivierschultz%2Fmaterial-weather.svg?type=small)](https://app.fossa.io/projects/git%2Bgithub.com%2Folivierschultz%2Fmaterial-weather?ref=badge_small)
 
 # Material Weather - Android Weather Application
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Folivierschultz%2Fmaterial-weather.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Folivierschultz%2Fmaterial-weather?ref=badge_shield)
+
 
 Olivier Colombies - Olivier Schultz
 
@@ -65,3 +67,6 @@ For the other part of the project, server and service, this refer to [Erozbliz/M
 MIT License
 
 Copyright (c) 2016 Olivier Schultz - Olivier Colombies
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Folivierschultz%2Fmaterial-weather.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Folivierschultz%2Fmaterial-weather?ref=badge_large)

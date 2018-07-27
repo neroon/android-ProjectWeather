@@ -1,4 +1,5 @@
 [![License](https://img.shields.io/:license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Folivierschultz%2Fmaterial-weather.svg?type=small)](https://app.fossa.io/projects/git%2Bgithub.com%2Folivierschultz%2Fmaterial-weather?ref=badge_small)
 
 # Material Weather - Android Weather Application
 

@@ -60,4 +60,4 @@ For the other part of the project, server and service, this refer to[Erozbliz/Me
 
 MIT License
 
-Copyright (c) 2016 Olivier Schultz - Olivier COlombies
+Copyright (c) 2016 Olivier Schultz - Olivier Colombies

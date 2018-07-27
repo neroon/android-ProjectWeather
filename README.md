@@ -1,79 +1,63 @@
-#Project Weather
+# Material Weather - Android Weather Application
 
-## Présensation
+Olivier Colombies - Olivier Schultz
 
-Le but du projet est d'explorer et transférer les notions vues en cours dans un projet de développement d'envergure moyenne, en 
-particulier :
+## Summary
 
-* "8 fallacies of distributed computing",
-* architecture client-server,
-* fils d'exécution,
-* synchronisation,
-* sérialisation,
-* serveurs,
-* services web,
-* REST,
-* clients mobilesn
-> cycle de vie
-> interfaces usagers pour appareils mobiles,
-* client web,
-> AJAX
-> HTML 5
-> Architecture 3-tiers, base de données,
-* géolocalisation
-* informatique diffuse et sensibilité au contexte,
+Material Weather is a project carried out by students of [Universté de Sherbrooke](https://www.usherbrooke.ca/).
+
+The goal of the project was to create a medium scale development project with the following concepts:
+
+* 8 fallacies of distributed computing
+* architecture client-server
+* threads
+* synchronization
+* serialization
+* web services
+* API REST
+* application lifecycle management
+* mobile user interface
+* multitier architecture
+* database
+* geolocalization
+
+In this project, we developed an user-friendly and interactive android application.
 
 ## Description
 
-Le projet doit comprendre minimalement les élements suivants :
+The project includes the following elements:
 
-* implémentation d'un serveur,
-* utilisation d'une API REST,
-* implémentation d'un service web REST "maison",
-* client mobile sur téléphone cellulaire ou sur tablette,
-* utilisation d'informations de géolocalisation et personnalisation selon le contexte (lieu, heure, historique, profil...).
+* server implementation,
+* API REST,
+* implementation of a homemade REST web service,
+* mobile application,
+* use of geolocation information and personalization according to the context (location, time, history, profile...).
 
+## Devices Support
 
-## Appareils supportés
-
-Ce projet va principalement visée ces appareils :
+We support the following devices:
 
 * Nexus 5X
 * Sony Xperia Z
 
-Versions Android visées :
+Android version:
 
 * Android 7.0 Nougat (API level 24-25)
 
-
-## Technologies utilisées
-* Retrofit   v2.1.0
-* OkHttp     v3.5.0
-* RxJava     v1.2.3
-* Picasso    v2.5.2
-* LeakCanary v1.5
-* OpenWeatherMap
-
-## Prérequis
+## Requirements
 
 * Android SDK 25
 * Android Build Tools v24.0.3
 * Android Support Repository
 
+## Quickstart
 
-## Installation
+The project uses the Gradle build system. To build the project, use the "gradlew build" or use "Import Project" in Android Studio.
 
-Le projet utilise le système de build Gradle. Pour construire le projet, utiliser le "gradlew build" ou utiliser "Import Project" dans Android Studio.
+For the other part of the project, server and service, this refer to[Erozbliz/Mean_stack_test](https://github.com/Erozbliz/MEAN_stack_test)
 
-Pour l'autre partie du projet, serveur et service, ce référer à [Erozbliz/Mean_stack_test](https://github.com/Erozbliz/MEAN_stack_test)
+## License
 
+MIT License
 
-## Licence
-
-Copyright 2016 University of Sherbrooke
-
-Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements. See the NOTICE file distributed with this work for additional information regarding copyright ownership. The ASF licenses this file to you under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
-
-[http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
-
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+Copyright (c) 2016 Olivier Schultz - Olivier COlombies

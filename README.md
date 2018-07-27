@@ -1,3 +1,5 @@
+[![License](https://img.shields.io/:license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 # Material Weather - Android Weather Application
 
 Olivier Colombies - Olivier Schultz
